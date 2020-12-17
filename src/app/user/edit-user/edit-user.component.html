@@ -1,0 +1,278 @@
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card wizard-content">
+                <div class="tab-wizard wizard-circle wizard clearfix">
+                    <div class="steps clearfix">
+                        <ul role="tablist">
+                            <li role="tab" class="first" [ngClass]="{'current': steps == 1 , 'disabled': steps != 1, 'done': steps >= 1}" aria-disabled="false" aria-selected="true" (click)="steps=1"><a id="steps-uid-1-t-0" href="#" (click)="false" aria-controls="steps-uid-1-p-0"><span class="current-info audible">current step: </span><span class="step">1</span> Personal Info</a></li>
+                            <li role="tab" class="" [ngClass]="{'current': steps == 2, 'disabled': steps != 2, 'done': steps >= 2}" aria-disabled="true" (click)="steps=2"><a id="steps-uid-1-t-1" href="#" (click)="false" aria-controls="steps-uid-1-p-1"><span class="step">2</span> Address</a></li>
+                            <li role="tab" class="" [ngClass]="{'current': steps == 3, 'disabled': steps != 3, 'done': steps >= 3}" aria-disabled="true" (click)="steps=3"><a id="steps-uid-1-t-2" href="#" (click)="false" aria-controls="steps-uid-1-p-2"><span class="step">3</span> Car Information</a></li>
+                            <li role="tab" class=" last" [ngClass]="{'current': steps == 4, 'disabled': steps != 4, 'done': steps == 4}" aria-disabled="true" (click)="steps=4"><a id="steps-uid-1-t-3" href="#" (click)="false" aria-controls="steps-uid-1-p-3"><span class="step">4</span> License Information</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+            <div class="card wizard-content">
+                <div class="card-body tab-wizard vertical wizard-circle wizard clearfix form-material">
+                    <div class="content clearfix">
+                        <!-- Step 1 -->
+                        <h6 id="steps-uid-1-h-0" tabindex="-1" class="title current" *ngIf="steps == 1">Personal Info</h6>
+                        <section id="steps-uid-1-p-0" role="tabpanel" aria-labelledby="steps-uid-1-h-0" class="body current" aria-hidden="false" *ngIf="steps == 1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName1">First Name</label>
+                                        <input type="text" [(ngModel)]="name" class="form-control"> </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName1">Last Name :</label>
+                                        <input type="text" [(ngModel)]="lastName1" class="form-control"> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="emailAddress1">Email Address :</label>
+                                        <input type="email" [(ngModel)]="email" class="form-control"> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phoneNumber1">Phone Number :</label>
+                                        <input type="tel" [(ngModel)]="phoneNumber1" class="form-control"> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="location1">Select City :</label>
+                                        <select class="custom-select form-control" [(ngModel)]="location1" id="location1">
+                                    <option value="">Select City</option>
+                                    <option value="Amsterdam">India</option>
+                                    <option value="Berlin">USA</option>
+                                    <option value="Frankfurt">Dubai</option>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="date1">Date of Birth :</label>
+                                        <input type="date" [(ngModel)]="date1" class="form-control"> </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Step 2 -->
+                        <h6 id="steps-uid-1-h-1" tabindex="-1" class="title" *ngIf="steps == 1">Address</h6>
+                        <section id="steps-uid-1-p-1" role="tabpanel" class="body" aria-hidden="true" *ngIf="steps == 2">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>Street</label>
+                                        <input type="text" [(ngModel)]="street" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" [(ngModel)]="city" class="form-control">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <input type="text" [(ngModel)]="state" class="form-control">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Post Code</label>
+                                        <input type="text" [(ngModel)]="postcode" class="form-control">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select class="form-control custom-select" [(ngModel)]="country">
+                                              <option>--Select your Country--</option>
+                                              <option>India</option>
+                                              <option>Sri Lanka</option>
+                                              <option>USA</option>
+                                          </select>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        </section>
+                        <!-- Step 3 -->
+                        <h6 id="steps-uid-1-h-2" tabindex="-1" class="title" *ngIf="steps == 3">Car Information</h6>
+                        <section id="steps-uid-1-p-2" *ngIf="steps == 3" class="body" aria-hidden="true">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Are you car owner?</label>
+                                        <select class="form-control" [(ngModel)]="carowner">
+                                          <option value="">Car Owner</option>
+                                          <option>Yes</option>
+                                          <option>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Car Brand</label>
+                                        <input type="text" [(ngModel)]="carbrand" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Car Model</label>
+                                        <input type="text" [(ngModel)]="carmodel" class="form-control">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Car Type</label>
+                                        <select class="form-control" [(ngModel)]="cartype">
+                                      <option value="">Type</option>
+                                      <option>Mini</option>
+                                      <option>Sedan</option>
+                                      <option>SUV</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Car Register Number</label>
+                                        <input type="text" [(ngModel)]="carrn" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Car Fuel Type</label>
+                                        <select class="form-control" [(ngModel)]="carfuel">
+                                    <option value="">Type</option>
+                                    <option>Petrol</option>
+                                    <option>Diesal</option>
+                                    <option>CNG</option>
+                                    <option>Electric</option>
+                                  </select>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="">
+                                            <label for="input-file-now">Upload RC Photo (front and backside)</label>
+                                            <div class="dropify-wrapper">
+                                                <div class="dropify-message"><span class="file-icon"></span>
+                                                    <p>Drag and drop a file here or click</p>
+                                                    <p class="dropify-error">Ooops, something wrong appended.</p>
+                                                </div>
+                                                <div class="dropify-loader"></div>
+                                                <div class="dropify-errors-container">
+                                                    <ul></ul>
+                                                </div><input type="file" [(ngModel)]="upload" id="input-file-now" class="dropify"><button type="button" class="dropify-clear">Remove</button>
+                                                <div class="dropify-preview"><span class="dropify-render"></span>
+                                                    <div class="dropify-infos">
+                                                        <div class="dropify-infos-inner">
+                                                            <p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p>
+                                                            <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                        <!-- Step 4 -->
+                        <h6 id="steps-uid-1-h-3" tabindex="-1" class="title">License Information</h6>
+                        <section id="steps-uid-1-p-3" role="tabpanel" aria-labelledby="steps-uid-1-h-3" class="body" aria-hidden="true" *ngIf="steps == 4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>License Number</label>
+                                        <input type="text" [(ngModel)]="licencenumber " class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>License Valid Till</label>
+                                        <input type="text" [(ngModel)]="licvalid" class="form-control">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="">
+                                            <label for="input-file-now">Upload License Photo (front and backside)</label>
+                                            <div class="dropify-wrapper">
+                                                <div class="dropify-message"><span class="file-icon"></span>
+                                                    <p>Drag and drop a file here or click</p>
+                                                    <p class="dropify-error">Ooops, something wrong appended.</p>
+                                                </div>
+                                                <div class="dropify-loader"></div>
+                                                <div class="dropify-errors-container">
+                                                    <ul></ul>
+                                                </div><input type="file" [(ngModel)]="upload2" id="input-file-now" class="dropify"><button type="button" class="dropify-clear">Remove</button>
+                                                <div class="dropify-preview"><span class="dropify-render"></span>
+                                                    <div class="dropify-infos">
+                                                        <div class="dropify-infos-inner">
+                                                            <p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p>
+                                                            <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="actions clearfix">
+                        <ul role="menu" aria-label="Pagination">
+                            <li class="" aria-disabled="false" (click)="steps = (steps == 1?1: steps - 1)"><a class="btn waves-effect waves-light btn-outline-secondary" href="#" (click)="false" role="menuitem">Previous</a></li>
+                            <li aria-hidden="false" aria-disabled="false" (click)="steps = (steps == 4?4: steps + 1)"><a class="btn waves-effect waves-light btn-outline-primary" href="#" (click)="false" role="menuitem">Next</a></li>
+                            <li aria-hidden="true" *ngIf="steps == 4"><a (click)="AddDriver()" role="menuitem" class="btn waves-effect waves-light btn-info">Update</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
