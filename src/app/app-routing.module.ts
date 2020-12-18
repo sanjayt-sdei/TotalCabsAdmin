@@ -16,13 +16,18 @@ import { MapsComponent } from './maps/maps.component';
 import { ChatComponent } from './chat/chat.component';
 import { ReportsComponent } from './reports/reports.component';
 import {AddUsersComponent } from './user/add-users/add-users.component'
-import {EditUserComponent} from './user/edit-user/edit-user.component'
+import {EditUserComponent} from './user/edit-user/edit-user.component';
+import { LoginComponent } from './shared/guard/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full'
+  },
+  {
+    path:'login',
+    component:LoginComponent
   },
   {
     path: 'dashboard',
