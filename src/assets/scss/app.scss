@@ -19,7 +19,9 @@ Global Styles
 * {
     outline: none;
 }
-
+html, body{
+    height: 100%;
+}
 body {
     background: $sidebar;
     font-family: $bodyfont;
