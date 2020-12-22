@@ -35,7 +35,8 @@ import { ChatComponent } from './chat/chat.component';
 import { ReportsComponent } from './reports/reports.component';
 import { AddUsersComponent } from './user/add-users/add-users.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-// import { LoginComponent } from './shared/guard/login/login.component';
+import { LoginComponent } from './shared/guard/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
  
 
 @NgModule({
@@ -59,8 +60,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     ChatComponent,
     ReportsComponent,
     AddUsersComponent,
-    EditUserComponent
-    // LoginComponent
+    EditUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
