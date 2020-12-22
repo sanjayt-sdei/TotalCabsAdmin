@@ -62,7 +62,7 @@ export class EditUserComponent implements OnInit {
         let dob= new Date(res.data.data.dob);
         let dob1=dob.toISOString().slice(0,10)
         console.log(dob.toISOString().slice(0,10));
-        this.userForm.controls['_id'].setValue(this.objData.id);
+        this.userForm.controls['_id'].setValue(this.objData._id);
         this.userForm.controls['name'].setValue(this.objData.name);
         this.userForm.controls['lastName'].setValue(this.objData.lastName);
         this.userForm.controls['email'].setValue(this.objData.email);
@@ -83,13 +83,15 @@ export class EditUserComponent implements OnInit {
 
   submitForm() {
     this.markFormTouched(this.userForm);
+    console.log(this.userForm.value);
+
     if (this.userForm.valid) {
-      this.service.addUser(this.userForm.value).subscribe(res => {
+      this.service.editUser(this.userForm.value).subscribe(res => {
         if (res) {
           console.log(this.userForm.value);
           this.navRoute.navigate(['/users']);
           this.reset();
-          this._toastr.success("User has been created Successfully !!", "User");
+          this._toastr.success("User has been Updated of Successfully !!", "User");
         } else {
           this._toastr.info("Error", "Doctor");
         }

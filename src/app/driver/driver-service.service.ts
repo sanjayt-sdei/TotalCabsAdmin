@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment as env } from "../../environments/environment";
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class DriverServiceService {
            .get(uri);
      }
 
-      addDriver(data) {
-      const uri = env.api_url1 + 'customerSignup';
+      addDriver(data):Observable<any>{
+      const uri = env.api_url2 + 'addCustomer';
       return this
             .http
            .post(uri, data);
