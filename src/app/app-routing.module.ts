@@ -62,7 +62,7 @@ const routes: Routes = [
         component: AddDriverComponent
       },
       {
-        path: 'edit/:id',
+        path: 'edit:id',
         component: EditDriverComponent
       },
      
@@ -90,7 +90,7 @@ const routes: Routes = [
         component: AddUsersComponent
       },
       {
-        path: 'edit/:id',
+        path: 'edit',
         component: EditUserComponent
       }
     ]

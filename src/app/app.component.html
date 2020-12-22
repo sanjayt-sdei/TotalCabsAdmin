@@ -1,16 +1,18 @@
 <div id="main-wrapper">
-    <!-- <div class="preloader" *ngIf="preloaderToggle()">
+    <div class="preloader" *ngIf="preloaderToggle()">
         <svg class="circular" viewBox="25 25 50 50">
       <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div> -->
+    </div>
     <!-- header -->
-    <!-- <app-header></app-header> -->
+    <app-header  *ngIf="currentUrl !='/login'"></app-header>
     <!-- sidebar -->
-    <!-- <app-sidebar></app-sidebar> -->
+    <app-sidebar  *ngIf="currentUrl !='/login'"></app-sidebar>
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-    <!-- <div class="page-wrapper" [ngStyle]="{'mini-height': miniHeight}"> -->
-<div>
+    <div class="page-wrapper" [ngStyle]="{'mini-height': miniHeight}">
+
         <router-outlet></router-outlet>
     </div>
 </div>
+
+
