@@ -50,10 +50,6 @@
                                 class="body current" aria-hidden="false" *ngIf="steps == 1">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <!-- <div class="form-group">
-                                            <label for="name">First Name</label>
-                                            <input type="text" class="form-control">
-                                        </div> -->
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input type="text" class="form-control" formControlName="name">
@@ -210,20 +206,26 @@
                             <section id="steps-uid-1-p-2" *ngIf="steps == 3" class="body" aria-hidden="true">
                                 <div class="row">
                                     <div class="col-md-6">
+
+
                                         <div class="form-group">
                                             <label>Are you car owner?</label>
-                                            <select class="form-control">
+                                            <select class="form-control  custom-select" formControlName="carOwner"
+                                                id="carOwner" (change)="selectChangeHandler($event)">
                                                 <option value="">Car Owner</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                                <option value="Yes">Yes </option>
+                                                <option value="No">No</option>
                                             </select>
+                                            <span class="text-danger"
+                                                *ngIf="userForm.controls['carOwner'].hasError('required') && (userForm.controls['carOwner'].dirty || userForm.controls['carOwner'].touched)">This
+                                                field is required</span>
                                         </div>
+
+
+
                                     </div>
-                                    <div class="col-md-6">
-                                        <!-- <div class="form-group">
-                                            <label>Car Brand</label>
-                                            <input type="text" class="form-control">
-                                        </div> -->
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
+
                                         <div class="form-group">
                                             <label>Car Brand</label>
                                             <input type="text" class="form-control" formControlName="carBrand">
@@ -234,11 +236,7 @@
 
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <!-- <div class="form-group">
-                                            <label>Car Model</label>
-                                            <input type="text" class="form-control">
-                                        </div> -->
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
                                         <div class="form-group">
                                             <label>Car Model</label>
                                             <input type="text" class="form-control" formControlName="carModel">
@@ -248,7 +246,7 @@
                                         </div>
                                     </div>
                                     <!--/span-->
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
                                         <div class="form-group">
                                             <label>Car Fuel Type</label>
                                             <select class="form-control  custom-select" formControlName="carType"
@@ -265,7 +263,7 @@
                                     </div>
                                     <!--/span-->
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
 
                                         <div class="form-group">
                                             <label>Car Register Number</label>
@@ -276,7 +274,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
                                         <div class="form-group">
                                             <label>Car Fuel Type</label>
                                             <select class="form-control  custom-select" formControlName="carFuelType"
@@ -293,37 +291,33 @@
                                         </div>
 
                                     </div>
-                                    <!--/span-->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <div class="">
-                                                <label for="input-file-now">Upload RC Photo (front and backside)</label>
-                                                <div class="dropify-wrapper">
-                                                    <div class="dropify-message"><span class="file-icon"></span>
-                                                        <p>Drag and drop a file here or click</p>
-                                                        <p class="dropify-error">Ooops, something wrong appended.</p>
-                                                    </div>
-                                                    <div class="dropify-loader"></div>
-                                                    <div class="dropify-errors-container">
-                                                        <ul></ul>
-                                                    </div><input type="file" id="input-file-now" class="dropify"><button
-                                                        type="button" class="dropify-clear">Remove</button>
-                                                    <div class="dropify-preview"><span class="dropify-render"></span>
-                                                        <div class="dropify-infos">
-                                                            <div class="dropify-infos-inner">
-                                                                <p class="dropify-filename"><span
-                                                                        class="file-icon"></span> <span
-                                                                        class="dropify-filename-inner"></span></p>
-                                                                <p class="dropify-infos-message">Drag and drop or click
-                                                                    to replace</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
+
+                                        <label for="">License Front :</label><br />
+                                        <div class="pic_container">
+                                            <img src={{picRF}} alt="Avatar" class="image">
+                                            <div class="overlay">
+                                                <input type="file" class="profile-pic-upload" name="rcFornt"
+                                                    id="imagePath" accept="image/*" (change)="onSelectRF($event)"
+                                                    #imageInput>
                                             </div>
                                         </div>
+                                        <br />
                                     </div>
 
+                                    <div class="col-md-6" *ngIf="form1==true && selectedValue=='Yes'">
+                                        <label for="">License Back:</label><br />
+                                        <div class="pic_container">
+                                            <img src={{picRB}} alt="Avatar" class="image">
+                                            <div class="overlay">
+                                                <input type="file" class="profile-pic-upload" name="rcBcak"
+                                                    id="imagePath" accept="image/*" (change)="onSelectRB($event)"
+                                                    #imageInput>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
                                 </div>
                             </section>
                             <!-- Step 4 -->
@@ -332,7 +326,7 @@
                                 aria-hidden="true" *ngIf="steps == 4">
                                 <div class="row">
                                     <div class="col-md-6">
-                                      
+
                                         <div class="form-group">
                                             <label>License Number</label>
                                             <input type="text" class="form-control" formControlName="licenseNo">
@@ -343,10 +337,6 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <!-- <div class="form-group">
-                                            <label>License Valid Till</label>
-                                            <input type="text"  class="form-control">
-                                        </div> -->
                                         <div class="form-group">
                                             <label>License Valid Till</label>
                                             <input type="date" class="form-control" formControlName="licenseValid">
@@ -355,38 +345,36 @@
                                                 field is required</span>
                                         </div>
                                     </div>
-                                    <!--/span-->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <div class="">
-                                                <label for="input-file-now">Upload License Photo (front and
-                                                    backside)</label>
-                                                <div class="dropify-wrapper">
-                                                    <div class="dropify-message"><span class="file-icon"></span>
-                                                        <p>Drag and drop a file here or click</p>
-                                                        <p class="dropify-error">Ooops, something wrong appended.</p>
-                                                    </div>
-                                                    <div class="dropify-loader"></div>
-                                                    <div class="dropify-errors-container">
-                                                        <ul></ul>
-                                                    </div><input type="file" id="input-file-now" class="dropify"><button
-                                                        type="button" class="dropify-clear">Remove</button>
-                                                    <div class="dropify-preview"><span class="dropify-render"></span>
-                                                        <div class="dropify-infos">
-                                                            <div class="dropify-infos-inner">
-                                                                <p class="dropify-filename"><span
-                                                                        class="file-icon"></span> <span
-                                                                        class="dropify-filename-inner"></span></p>
-                                                                <p class="dropify-infos-message">Drag and drop or click
-                                                                    to replace</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                </div>
+                                <!--/span-->
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label for="">License Front :</label><br />
+                                        <div class="pic_container">
+                                            <img src={{picLF}} alt="Avatar" class="image">
+                                            <div class="overlay">
+                                                <input type="file" class="profile-pic-upload" name="licenseFornt"
+                                                    id="imagePath" accept="image/*" (change)="onSelectLF($event)"
+                                                    #imageInput>
                                             </div>
                                         </div>
+                                        <br />
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="">License Back:</label><br />
+                                        <div class="pic_container">
+                                            <img src={{picLB}} alt="Avatar" class="image">
+                                            <div class="overlay">
+                                                <input type="file" class="profile-pic-upload" name="licenseBcak"
+                                                    id="imagePath" accept="image/*" (change)="onSelectLB($event)"
+                                                    #imageInput>
+                                            </div>
+                                        </div>
+                                        <br />
                                     </div>
                                 </div>
+
                             </section>
                         </div>
                     </div>

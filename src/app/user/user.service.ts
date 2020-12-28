@@ -12,29 +12,29 @@ export class UserService {
   constructor(private http: HttpClient,
     private router: Router,) { }
 
-  getAlluser(data = ""): Observable<any> {
-    const uri = env.api_url2 + 'getcustomer';
-    return this.http.get(uri);
+  getAlluser(): Observable<any> {
+    const uri = env.api_url + 'adminGetCustomer';
+    return this.http.post(uri,{});
   }
 
   deleteUser(id): Observable<any> {
     console.log("ser", id);
-    const uri = env.api_url2 + 'deleteUser';
+    const uri = env.api_url + 'adminDeleteUser';
     return this.http.post(uri, id);
   }
 
   addUser(data): Observable<any> {
-    const uri = env.api_url2 + 'addCustomer';
+    const uri = env.api_url + 'adminAddCustomer';
     return this.http.post(uri, data);
   }
   editUser(data): Observable<any> {
-    const uri = env.api_url2 + 'updateCustomer';
+    const uri = env.api_url + 'adminUpdateCustomer';
     return this.http.post(uri, data);
   }
 
   getUserById(data): Observable<any> {
     console.log(data);
-    const uri = env.api_url2 + 'getcustomerByid';
+    const uri = env.api_url + 'adminGetCustomerByid';
     return this.http.post(uri,data);
   }
 }

@@ -1,1 +1,132 @@
-<p>user-detail works!</p>
+<div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+                <div class="col-md-3 border-right">
+                        <!-- https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU -->
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                        class="rounded-circle mt-5" src="http://localhost:3531/uploads/{{imagefile}}"
+                                        width="200" height="300" alt="user"><span class="font-weight-bold">{{name}}
+                                        {{lastName}}</span><span class="text-black-50">{{email}}</span><span>
+                                </span></div>
+                </div>
+                <div class="col-md-4 border-right">
+                        <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Profile</h4>
+                                </div>
+                                <div class="row mt-3">
+                                        <div class="row  mt-2">
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons">Name : </span>{{name}}
+                                                                {{lastName}}</p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons">Email : </span>{{email}}</p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons">Phone Number :
+                                                                </span>{{phonenumber}}
+                                                        </p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons"> Date of birth: </span>{{dob |
+                                                                date:'fullDate' }}
+                                                        </p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons"> Street: </span>{{street}}</p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons"> City: </span>{{city}}</p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons"> State: </span>{{state}}</p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons"> Country: </span>{{country}}</p>
+                                                        <hr>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <p><span class="material-icons"> Post Code: </span>{{postcode}}
+                                                        </p>
+                                                        <hr>
+                                                </div>
+
+
+                                        </div>
+                                </div>
+
+                        </div>
+                </div>
+                <div class="col-md-5">
+                        <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Owner and Driver Details</h4>
+                                </div>
+
+                                <div class="col-md-12">
+                                        <p><span class="material-icons"> User Type: </span>{{userType}}</p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12" *ngIf="carOwner=='Yes'">
+                                        <p><span class="material-icons"> Car Brand: </span>{{carBrand}}</p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12" *ngIf="carOwner=='Yes'">
+                                        <p><span class="material-icons"> Car Fuel Type: </span>{{carFuelType}}</p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12" *ngIf="carOwner=='Yes'">
+                                        <p><span class="material-icons"> Car Reg No: </span>{{carRegNo}}</p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12" *ngIf="carOwner=='Yes'">
+                                        <p><span class="material-icons"> RC Front: </span><img
+                                                        src="http://localhost:3531/uploads/{{rcFront}}" width="250"
+                                                        height="100" alt="user"></p>
+                                        <hr>
+                                </div>
+
+
+                                <div class="col-md-12" *ngIf="carOwner=='Yes'">
+                                        <p><span class="material-icons"> RC Bcak: </span><img
+                                                        src="http://localhost:3531/uploads/{{rcBcak}}" width="250"
+                                                        height="100" alt="user"></p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12">
+                                        <p><span class="material-icons"> Licence No </span>{{licenseNo}}</p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12">
+                                        <p><span class="material-icons"> Licence Valid: </span>{{licenseValid |
+                                                date:'fullDate'}}</p>
+                                        <hr>
+                                </div>
+
+                                <div class="col-md-12">
+                                        <p><span class="material-icons"> Licence Fornt: </span><img
+                                                        src="http://localhost:3531/uploads/{{licenseFornt}}" width="250"
+                                                        height="100" alt="user"></p>
+                                        <hr>
+                                </div>
+                                <div class="col-md-12">
+                                        <p><span class="material-icons"> Licence Back: </span><img
+                                                        src="http://localhost:3531/uploads/{{licenseBcak}}" width="250"
+                                                        height="100" alt="user"></p>
+                                        <hr>
+                                </div>
+                                <!-- http://localhost:3531/uploads/{{dr.imagefile}} -->
+
+
+
+                        </div>
+                </div>
+        </div>
+</div>

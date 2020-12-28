@@ -8,63 +8,55 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DriverServiceService {
-  
+
 
   constructor(
-    private http: HttpClient, 
-    private router: Router, 
-  ) {}
+    private http: HttpClient,
+    private router: Router,
+  ) { }
 
 
-  getAlldriver(data="") {
-      const uri = env.api_url + 'getAlldriver';
-      return this
-           .http
-           .get(uri);
-     }
+  getAlldriver(): Observable<any> {
+    const url = env.api_url + 'adminGetDriver';
+    return this.http.post(url, {});
+  }
 
-      addDriver(data):Observable<any>{
-      const uri = env.api_url2 + 'addCustomer';
-      return this
-            .http
-           .post(uri, data);
-    }
-   
+  addDriver(data): Observable<any> {
+    const url = env.api_url + 'adminAddDriver';
+    return this.http.post(url, data);
+  }
 
-deleteDrive(id){
-  console.log("ser",id);
-  const uri = env.api_url + 'deleteDriver';
-      return this
-            .http
-           .post(uri, id);
-}
 
-getCurrentData(id){
-  const uri = env.api_url + 'findDriverById';
-  return this
-        .http
-       .post(uri, id);
-}
+  deleteDriver(id): Observable<any> {
+    console.log("ser", id);
+    const url = env.api_url + 'adminDeleteDriver';
+    return this.http.post(url, id);
+  }
 
-updatedriverdetails(id,data){
+  getCurrentData(id): Observable<any> {
+    const url = env.api_url + 'adminGetDriverByid';
+    return this.http.post(url, id);
+  }
 
-  const uri = env.api_url + 'updatedriverData';
-  return this
-        .http
-       .post(uri, id, data);
-}
+  updatedriverdetails(data):Observable<any> {
+
+    const url = env.api_url + 'adminUpdateDriver';
+    return this
+      .http
+      .post(url,data);
+  }
 
 
 
 
 
-    
 
- 
 
- 
- 
-  
+
+
+
+
+
 
 
 }
