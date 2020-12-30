@@ -18,6 +18,8 @@ import { ReportsComponent } from './reports/reports.component';
 import {AddUsersComponent } from './user/add-users/add-users.component'
 import {EditUserComponent} from './user/edit-user/edit-user.component';
 import { LoginComponent } from './shared/guard/login/login.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list/job-list.component';
 
 const routes: Routes = [
   {
@@ -95,6 +97,35 @@ const routes: Routes = [
       }
     ]
     
+  },
+  {
+    path: 'jobs',
+    component: JobComponent,
+    children: [
+      {
+        path: '',
+        component: JobListComponent
+      },
+      // {
+      //   path: 'details',
+      //   component: DriverDetailComponent
+      // },
+      // {
+      //   path: 'add',
+      //   component: AddDriverComponent
+      // },
+      // {
+      //   path: 'edit',
+      //   component: EditDriverComponent
+      // },
+     
+
+      {
+        path: '**',
+        component: JobListComponent
+
+      }
+    ]
   },
   {
     path: 'payment',

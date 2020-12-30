@@ -6,8 +6,8 @@
             <div class="card card-body">
                 <div class="row">
                     <div class="col-md-4 col-lg-3 text-center">
-                        <a [routerLink]="['users/details']"><img src="http://localhost:3531/uploads/{{dr.imagefile}}"
-                                alt="user" class="img-circle img-responsive"></a>
+                        <a [routerLink]="['users/details']"><img src="http://localhost:3531/uploads/{{dr.imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
+                                class="img-circle img-responsive"></a>
                         <!-- <a [routerLink]="['users/details']"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle img-responsive"></a> -->
 
                         <div class="mt-3 text-center btn-group w-100">
@@ -26,10 +26,10 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-9">
-                        <h3 class="box-title m-b-0">{{dr.name}} {{dr.lastName}}</h3>
+                        <h3 class="box-title m-b-0">{{dr.name |titlecase}} {{dr.lastName |titlecase}}</h3>
                         <address>
                             <abbr title="Address">Address</abbr>
-                            {{dr.street}},{{dr.city}},{{dr.state}},{{dr.country}},{{dr.postcode}}
+                            {{dr.street |titlecase}},{{dr.city |titlecase}},{{dr.state |titlecase}},{{dr.country |titlecase}},{{dr.postcode |titlecase}}
                             <br />
                             <abbr title="Phone">Phone: </abbr> {{dr.phone}}
                         </address>

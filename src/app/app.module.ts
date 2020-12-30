@@ -37,6 +37,8 @@ import { AddUsersComponent } from './user/add-users/add-users.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { LoginComponent } from './shared/guard/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list/job-list.component';
  
 
 @NgModule({
@@ -61,7 +63,9 @@ import { ToastrModule } from 'ngx-toastr';
     ReportsComponent,
     AddUsersComponent,
     EditUserComponent,
-    LoginComponent
+    LoginComponent,
+    JobComponent,
+    JobListComponent
   ],
   imports: [
     BrowserModule,

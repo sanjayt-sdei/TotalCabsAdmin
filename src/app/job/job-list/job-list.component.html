@@ -1,0 +1,215 @@
+<!-- <div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="tablesaw table-bordered table-hover table responsivetable" data-tablesaw-mode="swipe" data-tablesaw-sortable data-tablesaw-sortable-switch data-tablesaw-minimap data-tablesaw-mode-switch>
+                <thead>
+                    <tr>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Date</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Driver Name</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="1">users Name</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Received From</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Dropped At</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">
+                            Distance
+                        </th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Payment Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-title="Date">Nov 26, 2020</td>
+                        <td data-title="Driver Name">
+                            <a [routerLink]="['/drivers/details']">Manjeet Singh</a>
+                        </td>
+                        <td data-title="users Name">
+                            <a [routerLink]="['/users/4/details']">Kiran Sharma</a>
+                        </td>
+                        <td data-title="Recieved From">Old Mandir, Ludhiana</td>
+                        <td data-title="Dropped At">Chandigarh</td>
+                        <td data-title="Distance">150KM</td>
+                        <td data-title="Payment Status" class="text-primary">Completed</td>
+                        <td data-title="Action">
+                            <a [routerLink]="['/payment/23fgh/invoice']" class="btn btn-info btn-sm ml-1 mb-1"><i class="fa fa-file-text-o"></i></a>
+                            <button type="button" class="btn btn-danger btn-sm ml-1 mb-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-title="Date">Nov 25, 2020</td>
+                        <td data-title="Driver Name">
+                            <a [routerLink]="['/drivers/details']">Rajat</a>
+                        </td>
+                        <td data-title="users Name">
+                            <a [routerLink]="['/users/3/details']">Rajeev</a>
+                        </td>
+                        <td data-title="Recieved From">Amritsar</td>
+                        <td data-title="Dropped At">Shimla</td>
+                        <td data-title="Distance">450KM</td>
+                        <td data-title="Payment Status" class="text-themecolor">In-Progress</td>
+                        <td data-title="Action">
+                            <a [routerLink]="['/payment/23fgh/invoice']" class="btn btn-info btn-sm ml-1 mb-1"><i class="fa fa-file-text-o"></i></a>
+                            <button type="button" class="btn btn-danger btn-sm ml-1 mb-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-title="Date">Nov 24, 2020</td>
+                        <td data-title="Driver Name">
+                            <a [routerLink]="['/drivers/details']">Sukhdev Singh</a>
+                        </td>
+                        <td data-title="users Name">
+                            <a [routerLink]="['/users/2/details']">Kiran Sharma</a>
+                        </td>
+                        <td data-title="Recieved From">Old Mandir, Ludhiana</td>
+                        <td data-title="Dropped At">Chandigarh</td>
+                        <td data-title="Distance">150KM</td>
+                        <td data-title="Payment Status" class="text-warning">Pending</td>
+                        <td data-title="Action">
+                            <a [routerLink]="['/payment/23fgh/invoice']" class="btn btn-info btn-sm ml-1 mb-1"><i class="fa fa-file-text-o"></i></a>
+                            <button type="button" class="btn btn-danger btn-sm ml-1 mb-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-title="Date">Nov 23, 2020</td>
+                        <td data-title="Driver Name">
+                            <a [routerLink]="['/drivers/details']">Sukhdev Singh</a>
+                        </td>
+                        <td data-title="users Name">
+                            <a [routerLink]="['/users/1/details']">Kiran Sharma</a>
+                        </td>
+                        <td data-title="Recieved From">Old Mandir, Ludhiana</td>
+                        <td data-title="Dropped At">Chandigarh</td>
+                        <td data-title="Distance">150KM</td>
+                        <td data-title="Payment Status" class="text-danger">Rejected</td>
+                        <td data-title="Action">
+                            <a [routerLink]="['/payment/23fgh/invoice']" class="btn btn-info btn-sm ml-1 mb-1"><i class="fa fa-file-text-o"></i></a>
+                            <button type="button" class="btn btn-danger btn-sm ml-1 mb-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+<div class="card card-default">
+    <div class="card-header">
+        <h4 class="card-title mb-0">Cover Jobs</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover no-wrap contact-list" data-page-size="10">
+                <thead>
+                    <tr>
+
+                        <th>Order From</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <!-- <th>Status</th> -->
+                        <th>Distance</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let data of tempData">
+                    <tr>
+                        <td>
+                            <!-- ../assets/images/users/1.jpg -->
+
+                            <a href="javascript:void(0)"><img
+                                    src="http://localhost:3531/uploads/{{data.riderdetails.imagefile}}"
+                                    onerror="this.src = '../assets/images/users/1.jpg';"
+                                    class="img-circle" />{{data.riderdetails.name |titlecase}}</a>
+                        </td>
+                        <td>{{data.riderdetails.email}}</td>
+                        <td>{{data.riderdetails.phonenumber}}</td>
+                        <td>{{data.pickupLocation.address}}</td>
+                        <td>{{data.dropLocation.address}}</td>
+                        <td>{{data.distance}}</td>
+                        <!-- <td><span class="label label-warning">New</span> </td> -->
+
+                        <td>{{data.created_at | date:'short'}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
+                                (click)="openModal(template)">
+                                <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                    aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+
+                    <!--                 
+                    <tr>
+                        <td>1224</td>
+                        <td>
+                            <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user"
+                                    class="img-circle" /> Ritesh Deshmukh</a>
+                        </td>
+                        <td>ritesh@gmail.com</td>
+                        <td>Chandigarh - Shimla</td>
+                        <td><span class="label label-success">Complete</span> </td>
+
+                        <td>13-10-2017</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                    aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2124</td>
+                        <td>
+                            <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user"
+                                    class="img-circle" /> Raja Mauli</a>
+                        </td>
+                        <td>bahubali@gmail.com</td>
+                        <td>Shimla - Dharamshala</td>
+                        <td><span class="label label-inverse">Pending</span> </td>
+
+                        <td>12-10-2017</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
+                                <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                    aria-hidden="true"></i></button>
+                        </td>
+                    </tr> -->
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Assign Jobs</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-material">
+            <div class="form-group">
+                <label><small>Starting Address</small></label>
+                <div class="form-control d-block"><strong>Chandigarh</strong></div>
+
+            </div>
+            <div class="form-group">
+                <label><small>Destination Address</small></label>
+                <div class="form-control d-block"><strong>Ludhiana</strong></div>
+            </div>
+            <div class="form-group">
+                <label>Nearest Drivers</label>
+                <input type="text" class="form-control" />
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer text-right">
+        <button class="btn btn-primary">Assign Job</button>
+    </div>
+</ng-template>

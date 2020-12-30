@@ -11,9 +11,10 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
+  userTab = 'timeline';
   userId: any;
   objData: any;
-name:any;
+  name: any;
   phonenumber: any;
   email: any;
   lastName: any;
@@ -47,8 +48,8 @@ name:any;
   ) {
     this.route.queryParams.subscribe(params => {
       this.userId = params['userId'];
-      console.log("userId",this.userId);
-      
+      console.log("userId", this.userId);
+
     });
 
   }
@@ -66,33 +67,33 @@ name:any;
     this.service.getUserById(_id).subscribe(res => {
       if (res && res.code == 200) {
         this.objData = res.data.data;
-      this.name=res.data.data.name;
-        this.lastName=res.data.data.lastName;
-        this.email=res.data.data.email;
-        this.phonenumber=res.data.data.phonenumber;
-        this.dob=res.data.data.dob;
-        this.street=res.data.data.street;
-        this.city=res.data.data.city;
-        this.state=res.data.data.state;
-        this.postcode=res.data.data.postcode;
-        this.country=res.data.data.country;
-        this.userType=res.data.data.userType;
-        this.carBrand=res.data.data.carBrand;
-        this.carType=res.data.data.carType;
-        this.carFuelType=res.data.data.carFuelType;
-        this.carModel=res.data.data.carModel;
-        this.carRegNo=res.data.data.carRegNo;
-        this.licenseNo=res.data.data.licenseNo;
-        this.licenseValid=res.data.data.licenseValid;
-        this.carOwner=res.data.data.carOwner;
-        this.licenseFornt=res.data.data.licenseFornt;
-        this.licenseBcak=res.data.data.licenseBcak;
-        this.rcFront=res.data.data.rcFront;
-        this.rcBcak=res.data.data.rcBcak;
-        this.imagefile=res.data.data.imagefile;
+        this.name = res.data.data.name;
+        this.lastName = res.data.data.lastName;
+        this.email = res.data.data.email;
+        this.phonenumber = res.data.data.phonenumber;
+        this.dob = res.data.data.dob;
+        this.street = res.data.data.street;
+        this.city = res.data.data.city;
+        this.state = res.data.data.state;
+        this.postcode = res.data.data.postcode;
+        this.country = res.data.data.country;
+        this.userType = res.data.data.userType;
+        this.carBrand = res.data.data.carBrand;
+        this.carType = res.data.data.carType;
+        this.carFuelType = res.data.data.carFuelType;
+        this.carModel = res.data.data.carModel;
+        this.carRegNo = res.data.data.carRegNo;
+        this.licenseNo = res.data.data.licenseNo;
+        this.licenseValid = res.data.data.licenseValid;
+        this.carOwner = res.data.data.carOwner;
+        this.licenseFornt = res.data.data.licenseFornt;
+        this.licenseBcak = res.data.data.licenseBcak;
+        this.rcFront = res.data.data.rcFront;
+        this.rcBcak = res.data.data.rcBcak;
+        this.imagefile = res.data.data.imagefile;
 
 
-         console.log("objData", this.objData);
+        console.log("objData", this.objData);
 
       } else {
         this._toastr.info("Error", "Driver");
