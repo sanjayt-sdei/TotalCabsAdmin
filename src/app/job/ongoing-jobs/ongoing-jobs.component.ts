@@ -55,8 +55,6 @@ export class OngoingJobsComponent implements OnInit {
   close() {
        this.profileModal = false;
   }
-
-
   getUID(rowData: any) {
     this.data = rowData;
     console.log("data", this.data);
