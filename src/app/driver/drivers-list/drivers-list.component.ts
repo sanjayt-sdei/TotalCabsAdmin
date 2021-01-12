@@ -67,7 +67,7 @@ export class DriversListComponent implements OnInit {
     console.log("id",this.data)
     var data = { "_id": this.data }
     this.service.deleteDriver(data).subscribe(res => {
-      if (res && res.code == 200) {
+      if (res && res.status == 200) {
         console.log(res);
         this._toastr.success("Driver has been delete Successfully !!", "Driver");
         this.getdriverList();

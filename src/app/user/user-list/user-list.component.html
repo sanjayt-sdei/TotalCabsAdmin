@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-9">
-                        <h3 class="box-title m-b-0">{{dr.name |titlecase}} {{dr.lastName |titlecase}}</h3>
+                        <h3 class="box-title m-b-0">{{dr.name |titlecase}}</h3>
                         <address>
                             <abbr title="Address">Address</abbr>
                             {{dr.street |titlecase}},{{dr.city |titlecase}},{{dr.state |titlecase}},{{dr.country |titlecase}},{{dr.postcode |titlecase}}
@@ -37,6 +37,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
     <a [routerLink]="['add']"

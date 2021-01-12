@@ -24,6 +24,8 @@ export class UserListComponent implements OnInit {
     this.getuserList();
   }
 
+
+  
   getuserList() {
     this.service.getAlluser().subscribe(res => {
         if (res && res.code == 200) {
@@ -65,11 +67,11 @@ export class UserListComponent implements OnInit {
     console.log("id", this.data)
     var data = { "_id": this.data }
     this.service.deleteUser(data).subscribe(res => {
-        if (res && res.code == 200) {
+        if (res && res.status == 200) {
         console.log(res);
         this._toastr.success("User has been delete Successfully !!", "User");
-        this.getuserList();
         this.close();
+        this.getuserList();
       } else {
         this._toastr.info("Error", "Doctor");
 

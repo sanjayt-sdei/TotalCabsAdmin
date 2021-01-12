@@ -17,13 +17,20 @@
                             </button>
 
                             <button type="button" (click)="Edit(dr._id)" class="btn-sm btn btn-danger">
-
                                 <i class="fa fa-edit"></i>
                             </button>
+
+                            
+                            <button type="button"  class="btn-sm btn btn-warning">
+                                <i class="fa fa-ban"></i>
+                            </button>
+                            <!-- <button type="button"  class="btn-sm btn btn-success">
+                                <i class="fa fa-check"></i>
+                            </button> -->
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-9">
-                        <h3 class="box-title m-b-0">{{dr.name |titlecase}} {{dr.lastName |titlecase}}</h3>
+                        <h3 class="box-title m-b-0">{{dr.name |titlecase}}</h3>
                         <address>
                             <abbr title="Address">Address</abbr>
                             {{dr.street |titlecase}},{{dr.city |titlecase}},{{dr.state |titlecase}},{{dr.country |titlecase}},{{dr.postcode}}

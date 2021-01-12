@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 import { DriverServiceService } from '../driver-service.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class DriverDetailComponent implements OnInit {
   name: any;
   phonenumber: any;
   email: any;
-  lastName: any;
+  // lastName: any;
   dob: any;
   street: any;
   city: any;
@@ -27,16 +28,18 @@ export class DriverDetailComponent implements OnInit {
   carBrand: any;
   carType: any;
   carFuelType: any;
-  licenseNo: any;
+  licencenumber: any;
   carRegNo: any;
   carModel: any;
   licenseValid: any;
   carOwner: any;
-  licenseFornt: any;
-  licenseBcak: any;
-  rcFront: any;
-  rcBcak: any;
+  driverLicence: any;
+  driverManual: any;
+  healthSafetyPolicy: any;
+  hoistManual: any;
   imagefile: any;
+  pEndorsement: any;
+  trainingDoc: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -63,10 +66,15 @@ export class DriverDetailComponent implements OnInit {
     this.service.getCurrentData(_id).subscribe(res => {
       if (res && res.code == 200) {
         this.objData = res.data.data;
-        console.log("objData",this.objData);
-        
+        console.log("objData", this.objData);
+        this.driverLicence = `${environment.imageurl}${res.data.data.documents.driverLicence}`;
+        this.trainingDoc = `${environment.imageurl}${res.data.data.documents.trainingDoc}`;
+        this.hoistManual = `${environment.imageurl}${res.data.data.documents.pEndorsement}`;
+        this.hoistManual = `${environment.imageurl}${res.data.data.documents.hoistManual}`;
+        this.driverManual = `${environment.imageurl}${res.data.data.documents.driverManual}`;
+        this.healthSafetyPolicy = `${environment.imageurl}${res.data.data.documents.healthSafetyPolicy}`;
+        this.imagefile = `${environment.imageurl}${res.data.data.imagefile}`;
         this.name = res.data.data.name;
-        this.lastName = res.data.data.lastName;
         this.email = res.data.data.email;
         this.phonenumber = res.data.data.phonenumber;
         this.dob = res.data.data.dob;
@@ -81,16 +89,9 @@ export class DriverDetailComponent implements OnInit {
         this.carFuelType = res.data.data.carFuelType;
         this.carModel = res.data.data.carModel;
         this.carRegNo = res.data.data.carRegNo;
-        this.licenseNo = res.data.data.licenseNo;
+        this.licencenumber = res.data.data.licencenumber;
         this.licenseValid = res.data.data.licenseValid;
         this.carOwner = res.data.data.carOwner;
-        this.licenseFornt = res.data.data.licenseFornt;
-        this.licenseBcak = res.data.data.licenseBcak;
-        this.rcFront = res.data.data.rcFront;
-        this.rcBcak = res.data.data.rcBcak;
-        this.imagefile = res.data.data.imagefile;
-
-
         console.log("objData", this.objData);
 
       } else {

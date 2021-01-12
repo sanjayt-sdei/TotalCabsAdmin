@@ -38,6 +38,11 @@ export class DriverServiceService {
     return this.http.post(url, id);
   }
 
+  // getCurrentData(id): Observable<any> {
+  //   const url = environment.api_url + 'adminGetDriverByIdWithReview';
+  //   return this.http.post(url, id);
+  // }
+  
   updatedriverdetails(data):Observable<any> {
 
     const url = environment.api_url + 'adminUpdateDriver';
