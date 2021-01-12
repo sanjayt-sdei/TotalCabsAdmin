@@ -140,35 +140,42 @@ File: css
     height: 100%
 }
 
-.wizard-content .wizard>.actions {
+.wizard-content .wizard>.actions,
+.wizard-content .wizard> .content .actions
+ {
     position: relative;
     display: block;
     text-align: right;
     padding: 0 20px 20px
 }
 
-.wizard-content .wizard>.actions>ul {
+.wizard-content .wizard>.actions >ul,
+.wizard-content .wizard> .content .actions> ul {
     float: right;
     list-style: none;
     padding: 0;
     margin: 0
 }
 
-.wizard-content .wizard>.actions>ul:after {
+.wizard-content .wizard>.actions>ul:after,
+.wizard-content .wizard> .content .actions> ul:after {
     content: '';
     display: table;
     clear: both
 }
 
-.wizard-content .wizard>.actions>ul>li {
+.wizard-content .wizard>.actions>ul>li,
+.wizard-content .wizard> .content .actions> ul > li {
     float: left
 }
 
-.wizard-content .wizard>.actions>ul>li+li {
+.wizard-content .wizard>.actions>ul>li+li,
+.wizard-content .wizard> .content .actions> ul > li + li {
     margin-left: 10px
 }
 
-.wizard-content .wizard>.actions>ul>li>a {
+.wizard-content .wizard>.actions>ul>li>a,
+.wizard-content .wizard> .content .actions> ul>li>a {
     background: #009efb ;
     color: #fff;
     display: block;
@@ -178,42 +185,55 @@ File: css
 }
 
 .wizard-content .wizard>.actions>ul>li>a:focus,
-.wizard-content .wizard>.actions>ul>li>a:hover {
+.wizard-content .wizard>.actions>ul>li>a:hover,
+.wizard-content .wizard> .content .actions> ul>li>a:focus,
+.wizard-content .wizard> .content .actions> ul>li>a:hover {
     -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, .05) inset;
     box-shadow: 0 0 0 100px rgba(0, 0, 0, .05) inset
 }
 
-.wizard-content .wizard>.actions>ul>li>a:active {
+.wizard-content .wizard>.actions>ul>li>a:active,
+.wizard-content .wizard> .content .actions> ul>li>a:active {
     -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, .1) inset;
     box-shadow: 0 0 0 100px rgba(0, 0, 0, .1) inset
 }
 
-.wizard-content .wizard>.actions>ul>li>a[href="#previous"] {
+.wizard-content .wizard>.actions>ul>li>a[href="#previous"],
+.wizard-content .wizard> .content .actions> ul>li>a[href="#previous"] {
     background-color: #fff;
     color: #54667a;
     border: 1px solid #d9d9d9
 }
 
 .wizard-content .wizard>.actions>ul>li>a[href="#previous"]:focus,
-.wizard-content .wizard>.actions>ul>li>a[href="#previous"]:hover {
+.wizard-content .wizard>.actions>ul>li>a[href="#previous"]:hover,
+.wizard-content .wizard> .content .actions> ul>li>a[href="#previous"]:focus,
+.wizard-content .wizard> .content .actions> ul>li>a[href="#previous"]:hover {
     -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, .02) inset;
     box-shadow: 0 0 0 100px rgba(0, 0, 0, .02) inset
 }
 
-.wizard-content .wizard>.actions>ul>li>a[href="#previous"]:active {
+.wizard-content .wizard>.actions>ul>li>a[href="#previous"]:active,
+.wizard-content .wizard> .content .actions> ul>li>a[href="#previous"]:active {
     -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, .04) inset;
     box-shadow: 0 0 0 100px rgba(0, 0, 0, .04) inset
 }
 
 .wizard-content .wizard>.actions>ul>li.disabled>a,
 .wizard-content .wizard>.actions>ul>li.disabled>a:focus,
-.wizard-content .wizard>.actions>ul>li.disabled>a:hover {
+.wizard-content .wizard>.actions>ul>li.disabled>a:hover ,
+.wizard-content .wizard> .content .actions>ul>li.disabled>a,
+.wizard-content .wizard> .content .actions>ul>li.disabled>a:focus,
+.wizard-content .wizard> .content .actions>ul>li.disabled>a:hover {
     color: #999
 }
 
 .wizard-content .wizard>.actions>ul>li.disabled>a[href="#previous"],
 .wizard-content .wizard>.actions>ul>li.disabled>a[href="#previous"]:focus,
-.wizard-content .wizard>.actions>ul>li.disabled>a[href="#previous"]:hover {
+.wizard-content .wizard>.actions>ul>li.disabled>a[href="#previous"]:hover,
+.wizard-content .wizard> .content .actions>ul>li.disabled>a[href="#previous"],
+.wizard-content .wizard> .content .actions>ul>li.disabled>a[href="#previous"]:focus,
+.wizard-content .wizard> .content .actions>ul>li.disabled>a[href="#previous"]:hover{
     -webkit-box-shadow: none;
     box-shadow: none
 }
