@@ -3,7 +3,7 @@ import { UserService } from '../user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -18,6 +18,7 @@ export class UserListComponent implements OnInit {
     private _toastr: ToastrService,
     private navRoute: Router,
     private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -27,12 +28,16 @@ export class UserListComponent implements OnInit {
 
   
   getuserList() {
+    this.spinner.show();
     this.service.getAlluser().subscribe(res => {
         if (res && res.code == 200) {
-        console.log(res)
-        this.guests = res.data
-        console.log("guest", this.guests);
-
+          this.spinner.hide();
+          setTimeout(() => {
+          console.log(res)
+          this.guests = res.data
+          console.log("guest", this.guests);
+       
+        }, 5000)
       } else {
         console.log('Error');
 

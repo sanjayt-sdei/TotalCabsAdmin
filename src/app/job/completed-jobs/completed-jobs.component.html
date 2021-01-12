@@ -15,8 +15,8 @@
                             data-tablesaw-priority="1">Driver Name</th>
                         <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">From</th>
                         <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">To</th>
-                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Date Of Journey</th>
-                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">PicKup Time</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Trip Start Time</th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Trip End Time</th>
                         <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Distance</th>
 
 
@@ -36,9 +36,9 @@
                         </td>
                         <td data-title="From">{{data?.pickupLocation?.address}}</td>
                         <td data-title="To">{{data?.dropLocation?.address}}</td>
-                        <td data-title="To">{{data?.dateOfJourney | date:'mediumDate'}}</td>
+                        <td data-title="To">{{data?.tripStartTime | date:'mediumDate'}}</td>
 
-                        <td data-title="To">{{data?.pickUptime}}</td>
+                        <td data-title="To">{{data?.tripendtime | date:'mediumDate'}}</td>
                         <td data-title="Distance">{{data?.distance}}</td>
                         <!-- <td data-title="Action">
                             <button type="button" class="btn btn-danger btn-sm ml-1 mb-1"
