@@ -10,16 +10,18 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
 import { InvoiceComponent } from './payment/invoice/invoice.component';
-import { EditDriverComponent} from './driver/edit-driver/edit-driver.component';
+import { EditDriverComponent } from './driver/edit-driver/edit-driver.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapsComponent } from './maps/maps.component';
 import { ChatComponent } from './chat/chat.component';
 import { ReportsComponent } from './reports/reports.component';
-import {AddUsersComponent } from './user/add-users/add-users.component'
-import {EditUserComponent} from './user/edit-user/edit-user.component';
+import { AddUsersComponent } from './user/add-users/add-users.component'
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { LoginComponent } from './shared/guard/login/login.component';
 import { JobComponent } from './job/job.component';
 import { JobListComponent } from './job/job-list/job-list.component';
+import { OngoingJobsComponent } from './job/ongoing-jobs/ongoing-jobs.component';
+import { CompletedJobsComponent } from './job/completed-jobs/completed-jobs.component';
 
 const routes: Routes = [
   {
@@ -28,8 +30,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'login',
-    component:LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'dashboard',
@@ -67,7 +69,7 @@ const routes: Routes = [
         path: 'edit',
         component: EditDriverComponent
       },
-     
+
 
       {
         path: '**',
@@ -96,7 +98,7 @@ const routes: Routes = [
         component: EditUserComponent
       }
     ]
-    
+
   },
   {
     path: 'jobs',
@@ -106,20 +108,14 @@ const routes: Routes = [
         path: '',
         component: JobListComponent
       },
-      // {
-      //   path: 'details',
-      //   component: DriverDetailComponent
-      // },
-      // {
-      //   path: 'add',
-      //   component: AddDriverComponent
-      // },
-      // {
-      //   path: 'edit',
-      //   component: EditDriverComponent
-      // },
-     
-
+      {
+        path: 'ongoing',
+        component: OngoingJobsComponent
+      },
+      {
+        path: 'completed',
+        component: CompletedJobsComponent
+      },
       {
         path: '**',
         component: JobListComponent

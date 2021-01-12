@@ -3,11 +3,11 @@
         <div class="row">
             <!-- Column -->
             <div class="col-lg-4 col-xlg-3 col-md-5">
-                <div class="card"> <img class="card-img" src="http://localhost:3531/uploads/{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';">
+                <div class="card"> <img class="card-img" src="{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';">
                     <div class="card-img-overlay card-inverse social-profile d-flex ">
-                        <div class="align-self-center"> <img src="http://localhost:3531/uploads/{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
+                        <div class="align-self-center"> <img src="{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
                                 class="img-circle" width="100">
-                            <h4 class="card-title">{{name |titlecase }} {{lastName |titlecase }}</h4>
+                            <h4 class="card-title">{{name |titlecase }} </h4>
                             <!-- <h6 class="card-subtitle">@jamesandre</h6> -->
                             <p class="text-white">{{street |titlecase}} , {{city |titlecase}} , {{state |titlecase}} , {{country |titlecase}} , {{postcode}}</p>
                         </div>
@@ -52,7 +52,7 @@
                                 <div class="profiletimeline">
                                     <div>
                                         <div class="sl-item">
-                                            <div class="sl-left"> <img src="http://localhost:3531/uploads/{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
+                                            <div class="sl-left"> <img src="{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
                                                     alt="user" class="img-circle" /> </div>
                                             <div class="sl-right">
                                                 <div><a href="#" class="link">John Doe</a> <span class="sl-date ml-1">5
@@ -66,7 +66,7 @@
                                     </div>
                                     <div>
                                         <div class="sl-item">
-                                            <div class="sl-left"> <img src="http://localhost:3531/uploads/{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
+                                            <div class="sl-left"> <img src="{{imagefile}}" onerror="this.src = '../assets/images/background/socialbg.jpg';"
                                                     alt="user" class="img-circle" /> </div>
                                             <div class="sl-right">
                                                 <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes
@@ -106,7 +106,7 @@
                                 <div class="row">
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
                                         <br>
-                                        <p class="text-muted">{{name |titlecase}} {{lastName |titlecase}}</p>
+                                        <p class="text-muted">{{name |titlecase}} </p>
                                     </div>
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
                                         <br>
@@ -122,7 +122,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <hr>
+                                <!-- <hr>
                                 <div class="row">
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>Car Brand</strong>
                                         <br>
@@ -154,33 +154,33 @@
                                     </div>
                                   
                                 </div>
-                                <hr>
-                                <div class="row">
+                                <hr> -->
+                                <!-- <div class="row">
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>Licence Front</strong>
                                         <br>
                                         <p class="text-muted"><img
-                                            src="http://localhost:3531/uploads/{{licenseFornt}}" width="150"
+                                            src="{{licenseFornt}}" width="150"
                                             height="100" alt="user"></p>
                                     </div>
                                     <div class="col-md-3 col-xs-6"> <strong>Licence Back</strong>
                                         <br>
                                         <p class="text-muted"><img
-                                            src="http://localhost:3531/uploads/{{licenseBcak}}" width="150"
+                                            src="{{licenseBcak}}" width="150"
                                             height="100" alt="user"></p>
                                     </div>
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>RC Front</strong>
                                         <br>
                                         <p class="text-muted"><img
-                                            src="http://localhost:3531/uploads/{{rcFront}}" width="150"
+                                            src="{{rcFront}}" width="150"
                                             height="100" alt="user"></p>
                                     </div>
                                     <div class="col-md-3 col-xs-6"> <strong>RC Back</strong>
                                         <br>
                                         <p class="text-muted"><img
-                                            src="http://localhost:3531/uploads/{{rcBcak}}" width="150"
+                                            src="{{rcBcak}}" width="150"
                                             height="100" alt="user"></p>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In
                                     enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
                                     mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum

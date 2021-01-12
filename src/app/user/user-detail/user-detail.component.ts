@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 import { UserService } from '../user.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class UserDetailComponent implements OnInit {
   name: any;
   phonenumber: any;
   email: any;
-  lastName: any;
+  // lastName: any;
   dob: any;
   street: any;
   city: any;
@@ -68,7 +69,7 @@ export class UserDetailComponent implements OnInit {
       if (res && res.code == 200) {
         this.objData = res.data.data;
         this.name = res.data.data.name;
-        this.lastName = res.data.data.lastName;
+        // this.lastName = res.data.data.lastName;
         this.email = res.data.data.email;
         this.phonenumber = res.data.data.phonenumber;
         this.dob = res.data.data.dob;
@@ -86,11 +87,12 @@ export class UserDetailComponent implements OnInit {
         this.licenseNo = res.data.data.licenseNo;
         this.licenseValid = res.data.data.licenseValid;
         this.carOwner = res.data.data.carOwner;
-        this.licenseFornt = res.data.data.licenseFornt;
-        this.licenseBcak = res.data.data.licenseBcak;
-        this.rcFront = res.data.data.rcFront;
-        this.rcBcak = res.data.data.rcBcak;
-        this.imagefile = res.data.data.imagefile;
+        this.licenseFornt = res.data.data.documents.dlFront;
+        this.licenseBcak = res.data.data.documents.dlBack;
+        this.rcFront = res.data.data.documents.rcFront;
+        this.rcBcak = res.data.data.documents.rcBack;
+        this.imagefile = `${environment.imageurl}${res.data.data.imagefile}`;
+
 
 
         console.log("objData", this.objData);
