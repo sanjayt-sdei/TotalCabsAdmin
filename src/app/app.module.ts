@@ -37,8 +37,11 @@ import { AddUsersComponent } from './user/add-users/add-users.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { LoginComponent } from './shared/guard/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { JobComponent } from './job/job.component';
 import { JobListComponent } from './job/job-list/job-list.component';
+import { OngoingJobsComponent } from './job/ongoing-jobs/ongoing-jobs.component';
+import { CompletedJobsComponent } from './job/completed-jobs/completed-jobs.component';
  
 
 @NgModule({
@@ -65,7 +68,9 @@ import { JobListComponent } from './job/job-list/job-list.component';
     EditUserComponent,
     LoginComponent,
     JobComponent,
-    JobListComponent
+    JobListComponent,
+    OngoingJobsComponent,
+    CompletedJobsComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,8 @@ import { JobListComponent } from './job/job-list/job-list.component';
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     ChartsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
