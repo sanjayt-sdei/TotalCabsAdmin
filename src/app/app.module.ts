@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts';
+// import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -84,7 +84,7 @@ import { CompletedJobsComponent } from './job/completed-jobs/completed-jobs.comp
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
-    ChartsModule,
+    // ChartsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule
   ],
