@@ -11,11 +11,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, '/dist/')));
+app.use(express.static(path.join(__dirname, '/dist/totalcab-admin/')));
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-res.sendFile(path.join(__dirname, '/dist/'));
+res.sendFile(path.join(__dirname, '/dist/totalcab-admin/'));
 });
 
 // Get port from environment and store in Express.

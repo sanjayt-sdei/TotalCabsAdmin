@@ -1,0 +1,40 @@
+<div class="col-md-12 col-lg-12">
+    <div class="card wizard-content">
+        <div class="card-body tab-wizard vertical wizard-circle wizard clearfix form-material">
+
+            <form role="form" action="/wohoo" method="POST">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <fieldset id="intermideatelocation">
+                            <legend>Intermideate Location :</legend>
+                        </fieldset>
+                        <input type="button" value="Preview form" class="add" id="preview" />
+                        <input type="button" value="Add a field" class="add" id="add" />
+                        <div class="fieldwrapper" id="field0">
+                            <input type="text" id="address0" class="autocomplete">
+                            <input type="button" class="remove" value="-">
+                        </div>
+
+                        <!-- <div id="multi_field_wrapper">
+                            <span class="multi_fields">
+                                <label>Input Value</label>
+                                <input type="text" name="address[]" placeholder="Enter pickup location" class="autocomplete" />
+                                <button type="button" class="add-field">Add field</button>
+                                <button type="button" class="remove-field">Remove</button>
+                            </span>
+                        </div> -->
+
+                    </div>
+                </div>
+
+
+                <div class="actions clearfix px-0 text-right">
+                    <button class="btn waves-effect waves-light btn-outline-primary"
+                        (click)="submitForm()">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

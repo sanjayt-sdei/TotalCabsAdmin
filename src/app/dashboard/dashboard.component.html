@@ -1,0 +1,233 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Dashboard</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </div>
+    <div>
+        <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+    </div>
+</div>
+<div class="container-fluid">
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-8 col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423581.3164239507!2d-118.08630278078427!3d33.960952210383056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1606505120175!5m2!1sen!2sin"
+                        width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 col-md-5">
+            <!-- Column -->
+
+            <!-- Column -->
+            <div class="card card-default">
+                <div class="card-header">
+                    <h4 class="mb-0">Fair Calculator</h4>
+                </div>
+                <div class="card-body  clearfix form-material">
+                    <div class="form-group">
+                        <label>Start address</label>
+                        <input type="text" class="form-control" placeholder="Where do you want to start?" />
+                    </div>
+                    <div class="form-group">
+                        <label>Destination address</label>
+                        <input type="text" class="form-control" placeholder="Where you want to go?" />
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary">Calculate Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+
+        </div>
+    </div>
+    <!-- Row -->
+    <div class="card card-default">
+        <div class="card-header">
+            <h4 class="card-title mb-0">Assign Jobs</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover no-wrap contact-list" data-page-size="10">
+                    <thead>
+                        <tr>
+                            <th>ID #</th>
+                            <th>Order From</th>
+                            <th>Cust. Email</th>
+                            <th>From-to</th>
+                            <th>Status</th>
+
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1011</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                            </td>
+                            <td>genelia@gmail.com</td>
+                            <td>Chandigarh - Ludhiana</td>
+                            <td><span class="label label-warning">New</span> </td>
+
+                            <td>14-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline" (click)="openModal(template)">
+                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                          </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1011</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                            </td>
+                            <td>genelia@gmail.com</td>
+                            <td>Chandigarh - Ludhiana</td>
+                            <td><span class="label label-warning">New</span> </td>
+
+                            <td>14-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
+                          <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                        </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1011</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                            </td>
+                            <td>genelia@gmail.com</td>
+                            <td>Chandigarh - Ludhiana</td>
+                            <td><span class="label label-warning">New</span> </td>
+
+                            <td>14-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
+                        <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                      </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1011</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                            </td>
+                            <td>genelia@gmail.com</td>
+                            <td>Chandigarh - Ludhiana</td>
+                            <td><span class="label label-warning">New</span> </td>
+
+                            <td>14-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
+                      <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                    </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1011</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                            </td>
+                            <td>genelia@gmail.com</td>
+                            <td>Chandigarh - Ludhiana</td>
+                            <td><span class="label label-warning">New</span> </td>
+
+                            <td>14-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
+                                <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                              </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1224</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user" class="img-circle" /> Ritesh Deshmukh</a>
+                            </td>
+                            <td>ritesh@gmail.com</td>
+                            <td>Chandigarh - Shimla</td>
+                            <td><span class="label label-success">Complete</span> </td>
+
+                            <td>13-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2124</td>
+                            <td>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user" class="img-circle" /> Raja Mauli</a>
+                            </td>
+                            <td>bahubali@gmail.com</td>
+                            <td>Shimla - Dharamshala</td>
+                            <td><span class="label label-inverse">Pending</span> </td>
+
+                            <td>12-10-2017</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
+                                  <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Assign Jobs</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-material">
+            <div class="form-group">
+                <label><small>Starting Address</small></label>
+                <div class="form-control d-block"><strong>Chandigarh</strong></div>
+
+            </div>
+            <div class="form-group">
+                <label><small>Destination Address</small></label>
+                <div class="form-control d-block"><strong>Ludhiana</strong></div>
+            </div>
+            <div class="form-group">
+                <label>Nearest Drivers</label>
+                <input type="text" class="form-control" />
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer text-right">
+        <button class="btn btn-primary">Assign Job</button>
+    </div>
+</ng-template>
