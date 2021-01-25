@@ -16,6 +16,7 @@ export class DispachService {
     const url = environment.api_url + 'adminGetDriver';
     return this.http.post(url, {});
   }
+
   addDespatchJob(data):Observable<any> {
     console.log("data",data);
     

@@ -5,7 +5,9 @@
         </svg>
     </div>
     <!-- header -->
+    <!-- <app-header *ngIf="isLogggedin"></app-header> -->
     <app-header *ngIf="currentUrl != '/login'"></app-header>
+
     <!-- sidebar -->
     <app-sidebar *ngIf="currentUrl != '/login'"></app-sidebar>
     <!-- Page wrapper  -->
