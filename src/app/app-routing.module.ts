@@ -25,144 +25,161 @@ import { CompletedJobsComponent } from './job/completed-jobs/completed-jobs.comp
 import { DispachComponent } from './dispach/dispach.component';
 import { DiapachListComponent } from './dispach/diapach-list/diapach-list.component';
 import { AddDispachComponent } from './dispach/add-dispach/add-dispach.component';
+import { BookingDetailsComponent } from './bookings/booking-details/booking-details.component';
+import { BookingsListComponent } from './bookings/bookings-list/bookings-list.component';
+import { BookingsComponent } from './bookings/bookings.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'chat',
-    component: ChatComponent
-  },
-  {
-    path: 'maps',
-    component: MapsComponent
-  },
-  {
-    path: 'reports',
-    component: ReportsComponent
-  },
-  {
-    path: 'drivers',
-    component: DriverComponent,
-    children: [
-      {
-        path: '',
-        component: DriversListComponent
-      },
-      {
-        path: 'details',
-        component: DriverDetailComponent
-      },
-      {
-        path: 'add',
-        component: AddDriverComponent
-      },
-      {
-        path: 'edit',
-        component: EditDriverComponent
-      },
+{
+path: '',
+redirectTo: 'dashboard',
+pathMatch: 'full'
+},
+{
+path: 'login',
+component: LoginComponent
+},
+{
+path: 'dashboard',
+component: DashboardComponent
+},
+{
+path: 'chat',
+component: ChatComponent
+},
+{
+path: 'maps',
+component: MapsComponent
+},
+{
+path: 'reports',
+component: ReportsComponent
+},
+{
+path: 'drivers',
+component: DriverComponent,
+children: [
+{
+path: '',
+component: DriversListComponent
+},
+{
+path: 'details',
+component: DriverDetailComponent
+},
+{
+path: 'add',
+component: AddDriverComponent
+},
+{
+path: 'edit',
+component: EditDriverComponent
+},
 
 
-      {
-        path: '**',
-        component: DriversListComponent
-      }
-    ]
-  },
-  {
-    path: 'users',
-    component: UserComponent,
-    children: [
-      {
-        path: '',
-        component: UserListComponent
-      },
-      {
-        path: 'details',
-        component: UserDetailComponent
-      },
-      {
-        path: 'add',
-        component: AddUsersComponent
-      },
-      {
-        path: 'edit',
-        component: EditUserComponent
-      }
-    ]
+{
+path: '**',
+component: DriversListComponent
+}
+]
+},
+{
+path: 'users',
+component: UserComponent,
+children: [
+{
+path: '',
+component: UserListComponent
+},
+{
+path: 'details',
+component: UserDetailComponent
+},
+{
+path: 'add',
+component: AddUsersComponent
+},
+{
+path: 'edit',
+component: EditUserComponent
+}
+]
 
-  },
-  {
-    path: 'jobs',
-    component: JobComponent,
-    children: [
-      {
-        path: '',
-        component: JobListComponent
-      },
-      {
-        path: 'ongoing',
-        component: OngoingJobsComponent
-      },
-      {
-        path: 'completed',
-        component: CompletedJobsComponent
-      },
-      {
-        path: '**',
-        component: JobListComponent
+},
+{
+path: 'jobs',
+component: JobComponent,
+children: [
+{
+path: '',
+component: JobListComponent
+},
+{
+path: 'ongoing',
+component: OngoingJobsComponent
+},
+{
+path: 'completed',
+component: CompletedJobsComponent
+},
+{
+path: '**',
+component: JobListComponent
 
-      }
-    ]
-  },
-  {
-    path:'dispach',
-    component:DispachComponent,
-    children:[
-      {
-        path:'',
-        component:DiapachListComponent
-      },
-      {
-        path:'add',
-        component:AddDispachComponent
-      },
-      {
-        path: '**',
-        component: DiapachListComponent
+}
+]
+},
+{
+path:'dispach',
+component:DispachComponent,
+children:[
+{
+path:'',
+component:DiapachListComponent
+},
+{
+path:'add',
+component:AddDispachComponent
+},
+{
+path: '**',
+component: DiapachListComponent
 
-      }
-    ]
-  },
-  {
-    path: 'payment',
-    component: PaymentComponent,
-    children: [
-      {
-        path: '',
-        component: PaymentListComponent
-      },
-      {
-        path: ':id/invoice',
-        component: InvoiceComponent
-      }
-    ]
-  }
+}
+]
+},
+{
+path: 'payment',
+component: PaymentComponent,
+children: [
+{
+path: '',
+component: PaymentListComponent
+},
+{
+path: ':id/invoice',
+component: InvoiceComponent
+}
+]
+},
+{
+path: 'bookings',
+component: BookingsComponent,
+children: [
+{
+path: '',
+component: BookingsListComponent
+},
+{
+path: ':id',
+component: InvoiceComponent
+}
+]
+}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+imports: [RouterModule.forRoot(routes)],
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -47,62 +47,73 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MapsComponent } from './maps/maps.component';
 import { ReportsComponent } from './reports/reports.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { BookingsComponent } from './bookings/bookings.component';
+import { BookingsListComponent } from './bookings/bookings-list/bookings-list.component';
+import { BookingDetailsComponent } from './bookings/booking-details/booking-details.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SidebarComponent,
-    DriverComponent,
-    UserComponent,
-    DriverDetailComponent,
-    DriversListComponent,
-    UserListComponent,
-    UserDetailComponent,
-    AddDriverComponent,
-    PaymentComponent,
-    PaymentListComponent,
-    InvoiceComponent,
-    DashboardComponent,
-    EditDriverComponent,
-    MapsComponent,
-    ChatComponent,
-    ReportsComponent,
-    AddUsersComponent,
-    EditUserComponent,
-    LoginComponent,
-    JobComponent,
-    JobListComponent,
-    OngoingJobsComponent,
-    CompletedJobsComponent,
-    DispachComponent,
-    AddDispachComponent,
-    DiapachListComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    AccordionModule.forRoot(),
-    AlertModule.forRoot(),
-    TooltipModule.forRoot(),
-    ModalModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    ChartsModule,
-    ToastrModule.forRoot(),
-    NgxSpinnerModule,
-    NgxPaginationModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAPtxJJdDVQUUW_PKvnIHaPuH6YOgGnjGA',
-      libraries: ['places',"geometry"],
-    }),
+declarations: [
+    BookingsComponent,
+    BookingDetailsComponent,
+    BookingsListComponent,
+AppComponent,
+HeaderComponent,
+SidebarComponent,
+DriverComponent,
+UserComponent,
+DriverDetailComponent,
+DriversListComponent,
+UserListComponent,
+UserDetailComponent,
+AddDriverComponent,
+PaymentComponent,
+PaymentListComponent,
+InvoiceComponent,
+DashboardComponent,
+EditDriverComponent,
+MapsComponent,
+ChatComponent,
+ReportsComponent,
+AddUsersComponent,
+EditUserComponent,
+LoginComponent,
+JobComponent,
+JobListComponent,
+OngoingJobsComponent,
+CompletedJobsComponent,
+DispachComponent,
+AddDispachComponent,
+DiapachListComponent
+],
+imports: [
+BrowserModule,
+AppRoutingModule,
+HttpClientModule,
+NgxPaginationModule,
+FormsModule,
+ReactiveFormsModule,
+BrowserAnimationsModule,
+AccordionModule.forRoot(),
+AlertModule.forRoot(),
+TooltipModule.forRoot(),
+ModalModule.forRoot(),
+BsDropdownModule.forRoot(),
+ChartsModule,
+ToastrModule.forRoot(),
+NgxSpinnerModule,
+NgxPaginationModule,
+AgmCoreModule.forRoot({
+apiKey: 'AIzaSyAPtxJJdDVQUUW_PKvnIHaPuH6YOgGnjGA',
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+}),
+TabsModule.forRoot(),
+NgxDaterangepickerMd.forRoot(),
+],
+providers: [],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
+

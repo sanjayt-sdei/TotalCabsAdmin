@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-default">
+        <div class="card-header">
+            <h4 class="card-title mb-0">All bookings</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover no-wrap contact-list" data-page-size="10">
+                            <thead>
+                                <tr>
+                                    <th>ID #</th>
+                                    <th>Order From</th>
+                                    <th>Cust. Email</th>
+                                    <th>From-to</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    *ngFor="let item of bookingsList | paginate: { itemsPerPage: 10, currentPage: page }">
+                                    <td>{{item._id}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)">
+                                            <!-- <img src="{{item.user.imagefile}}" alt="user" class="img-circle" /> -->
+                                            {{item?.user?.name}}
+                                        </a>
+                                    </td>
+                                    <td>{{item.user?.email}}</td>
+                                    <td>{{item.jobid?.dropLocation?item.jobid.dropLocation.address:''}} -
+                                        {{item.jobid?.pickupLocation?item.jobid.pickupLocation.address:''}}</td>
+                                    <td [ngSwitch]="item.jobid?.tripstatus">
+                                        <span *ngSwitchCase="'Accepted'"
+                                            class="label label-danger">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Canceled'"
+                                            class="label label-danger">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Completed'"
+                                            class="label label-warning">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Upcoming'"
+                                            class="label label-info">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchDefault class="label label-inverse">{{item.jobid?.tripstatus
+                                            ||'unknown'}}</span>
+                                    </td>
+                                    <td>{{item.jobid?.tripendtime| date:'dd-MM-yyyy'}}</td>
+                                    <td>{{item.jobid?.tripendtime| date:'HH:mm'}}</td>
+                                    <td>
+                                        <!-- <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
+                                            (click)="openModal(template)">
+                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                                        </button> -->
+                                        <button [routerLink]="['/bookings',item._id]" *ngIf="
+                                            item.jobid?.tripstatus==='Completed'" title=" genrate Invoice"
+                                            type="button" class="btn btn-sm btn-icon btn-pure btn-primary "
+                                            data-toggle="tooltip" data-original-title="Generate Invoice">
+                                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 text-right">
+                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
