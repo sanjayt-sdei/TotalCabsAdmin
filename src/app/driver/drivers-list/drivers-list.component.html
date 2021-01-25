@@ -1,34 +1,48 @@
 <div class="container-fluid">
     <!-- .row -->
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
     <div class="row">
         <!-- .col -->
-        <div class="col-md-6 col-lg-6 col-xlg-4" *ngFor="let dr of guests">
+        <div class="col-md-6 col-lg-6 col-xlg-4" *ngFor="let dr of guests  | paginate: { itemsPerPage: 10, currentPage: p }">
             <div class="card card-body">
                 <div class="row">
                     <div class="col-md-4 col-lg-3 text-center">
-                        <a [routerLink]="['/drivers/details']"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle img-responsive"></a>
+                        <a [routerLink]="['/drivers/details']"><img src="http://localhost:3531/uploads/{{dr.imagefile}}"
+                                onerror="this.src = '../assets/images/background/socialbg.jpg';"
+                                class="img-circle img-responsive"></a>
                         <div class="mt-3 text-center btn-group w-100">
-                            <a class="btn btn-info btn-sm" [routerLink]="['/drivers/details']" routerLinkActive="router-link-active">
+                            <a class="btn btn-info btn-sm" (click)="veiwDriver(dr._id)"
+                                routerLinkActive="router-link-active">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <button type="button" (click)="deletedriverList(dr._id)" class="btn-sm btn btn-danger">
-                        <i class="fa fa-trash"></i>
-                      </button>
+                            <button type="button" (click)="getId(dr._id)" class="btn-sm btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
 
-                            <button type="button" routerLink="/drivers/edit/{{dr._id}}" class="btn-sm btn btn-danger">
-                        <i class="fa fa-edit"></i>
-                      </button>
+                            <button type="button" (click)="Edit(dr._id)" class="btn-sm btn btn-danger">
+                                <i class="fa fa-edit"></i>
+                            </button>
+
+
+                            <!-- <button type="button" class="btn-sm btn btn-warning">
+                                <i class="fa fa-ban"></i>
+                            </button> -->
+                            <!-- <button type="button"  class="btn-sm btn btn-success">
+                                <i class="fa fa-check"></i>
+                            </button> -->
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-9">
-                        <h3 class="box-title m-b-0"></h3> <small>Cab Driver</small>
+                        <h3 class="box-title m-b-0">{{dr.name |titlecase}}</h3>
                         <address>
-                           <!-- <pre>{{dr | json}}}</pre>  -->
-                           <!-- {{dr.pickUpLocation.address}} -->
-                        <br/>
-                        <br/>
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                    </address>
+                            <abbr title="Address">Address</abbr>
+                            {{dr.street |titlecase}},{{dr.city |titlecase}},{{dr.state |titlecase}},{{dr.country
+                            |titlecase}},{{dr.postcode}}
+                            <br />
+                            <abbr title="Phone">Phone: </abbr> {{dr.phone}}
+                        </address>
                     </div>
                 </div>
             </div>
@@ -37,5 +51,30 @@
         <!-- .col -->
 
     </div>
-    <a [routerLink]="['add']" class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-pencil-alt text-white"></i></a>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <a [routerLink]="['add']"
+        class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i
+            class="ti-pencil-alt text-white"></i></a>
+</div>
+
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Driver Delete </h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Are you want to delete !</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-info" data-dismiss="modal"
+                    (click)="close()">Cancel</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deleteDriver()">Delete</button>
+            </div>
+        </div>
+    </div>
 </div>

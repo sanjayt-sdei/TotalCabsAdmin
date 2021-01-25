@@ -19,48 +19,110 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <form [formGroup]='filterForm'>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" ngxDaterangepickerMd placeholder="select Date Range"
+                                    [locale]="{applyLabel: 'Apply', format: 'DD-MM-YYYY'}" [(ngModel)]="selected"
+                                    formControlName="daterange" class="form-control position-relative" />
+                            </div>
+                            <div class="col">
+                                <select class="custom-select" formControlName="driver">
+                                    <option value='' selected>select Driver</option>
+                                    <option *ngFor="let item of driverList" value="{{item?._id}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="custom-select" formControlName="type">
+                                    <option value='' selected>Select Trip Status</option>
+                                    <option value='Normal' selected>Normal</option>
+                                    <option value='Hailjob' selected>Hailjob</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="custom-select" formControlName="paymentStatus">
+                                    <option value='' selected>Select Payment Status</option>
+                                    <option value='hold' selected>Hold</option>
+                                    <option value='processing' selected>Processing</option>
+                                    <option value='completed' selected>Completed</option>
+                                    <option value='failed' selected>Failed</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button class="btn" (click)='getFlterReport()'>filter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
 
                     <div class="row">
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="col-md-6 col-lg-2 col-xlg-2">
                             <div class="card card-inverse card-info">
                                 <div class="box bg-info text-center">
-                                    <h1 class="font-light text-white">2,064</h1>
+                                    <h1 class="font-light text-white">{{totalJob}}</h1>
                                     <h6 class="text-white">Total Jobs</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="col-md-6 col-lg-2 col-xlg-2">
                             <div class="card card-success card-inverse">
                                 <div class="box text-center">
-                                    <h1 class="font-light text-white">1,738</h1>
+                                    <h1 class="font-light text-white">{{totalDriver}}</h1>
                                     <h6 class="text-white">Total Driver</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="col-md-6 col-lg-2 col-xlg-2">
                             <div class="card card-inverse card-danger">
                                 <div class="box text-center">
-                                    <h1 class="font-light text-white">1100</h1>
+                                    <h1 class="font-light text-white">{{completedJob}}</h1>
                                     <h6 class="text-white">Completed Jobs</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="col-md-6 col-lg-2 col-xlg-2">
                             <div class="card card-inverse card-dark">
                                 <div class="box text-center">
-                                    <h1 class="font-light text-white">964</h1>
+                                    <h1 class="font-light text-white">{{PendingJob}}</h1>
                                     <h6 class="text-white">Pending Jobs</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <div class="col-md-6 col-lg-2 col-xlg-2">
+                            <div class="card card-inverse card-primary">
+                                <div class="box text-center">
+                                    <h1 class="font-light text-white">{{ongoingJob}}</h1>
+                                    <h6 class="text-white">Ongoing Jobs</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <!-- Column -->
+                        <div class="col-md-6 col-lg-2 col-xlg-2">
+                            <div class="card card-inverse card-success">
+                                <div class="box text-center">
+                                    <h1 class="font-light text-white">{{upcomingJob}}</h1>
+                                    <h6 class="text-white">Upcoming Jobs</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
                     </div>
                     <div class="table-responsive">
-                        <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                        <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list"
+                            data-page-size="10">
                             <thead>
                                 <tr>
                                     <th>ID #</th>
@@ -74,51 +136,44 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1011</td>
+                                <tr *ngFor="let item of list | paginate: { itemsPerPage: 10, currentPage: page }">
+                                    <td>{{item?._id}}</td>
                                     <td>
-                                        <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                                        <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user"
+                                                class="img-circle" />{{item?.user?.name}}</a>
                                     </td>
-                                    <td>genelia@gmail.com</td>
-                                    <td>Chandigarh - Ludhiana</td>
-                                    <td><span class="label label-warning">New</span> </td>
-                                    <td>Johnathon</td>
-                                    <td>14-10-2017</td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                                    <td>{{item?.user?.email}}</td>
+                                    <td>{{item?.jobid?.pickUpLocation?.address}} -
+                                        {{item?.jobid?.dropLocation?.address}}</td>
+                                    <td [ngSwitch]="item.jobid?.tripstatus">
+                                        <span *ngSwitchCase="'Accepted'"
+                                            class="label label-primary">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Canceled'"
+                                            class="label label-danger">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Completed'"
+                                            class="label label-warning">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Upcoming'"
+                                            class="label label-info">{{item.jobid?.tripstatus}}</span>
+                                        <span *ngSwitchDefault class="label label-inverse">{{item.jobid?.tripstatus
+                                            ||'unknown'}}</span>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>1224</td>
+                                    <td>{{item?.driverdetails?.name}}</td>
+                                    <td>{{item?.jobid?.tripStartTime | date:'dd-MM-yyyy'}}</td>
                                     <td>
-                                        <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user" class="img-circle" /> Ritesh Deshmukh</a>
-                                    </td>
-                                    <td>ritesh@gmail.com</td>
-                                    <td>Chandigarh - Shimla</td>
-                                    <td><span class="label label-success">Complete</span> </td>
-                                    <td>Salman khan</td>
-                                    <td>13-10-2017</td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2124</td>
-                                    <td>
-                                        <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user" class="img-circle" /> Raja Mauli</a>
-                                    </td>
-                                    <td>bahubali@gmail.com</td>
-                                    <td>Shimla - Dharamshala</td>
-                                    <td><span class="label label-inverse">Pending</span> </td>
-                                    <td>Hritik Roshan</td>
-                                    <td>12-10-2017</td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                                        <!-- <button type="button"
+                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                                aria-hidden="true"></i></button> -->
                                     </td>
                                 </tr>
                             </tbody>
 
                         </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                        </div>
                     </div>
                 </div>
             </div>

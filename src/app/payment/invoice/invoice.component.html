@@ -1,70 +1,141 @@
-<div class="card card-body printableArea">
-    <h3><b>INVOICE</b> <span class="pull-right">#5669626</span></h3>
-    <hr>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="pull-left">
-                <address>
-                  <h3> &nbsp;<b class="text-danger">Manjeet Singh</b></h3>
-                  <p class="text-muted m-l-5">E 104, Dharti-2,
-                      <br/> Nr' Viswakarma Temple,
-                      <br/> Talaja Road,
-                      <br/> Bhavnagar - 364002</p>
-              </address>
-            </div>
-            <div class="pull-right text-right">
-                <address>
-                  <h3>To,</h3>
-                  <h4 class="font-bold">Kiran Sharma,</h4>
-                  <p class="text-muted m-l-30">3790  Christie Way,
-                      <br/> 3790  Christie Way,
-                      <br/> Talaja Road,
-                      <br/> Massachusetts - 02173</p>
-                  <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan 2017</p>
-                  <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>
-              </address>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="table-responsive m-t-40" style="clear: both;">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center">#</th>
-                            <th>Picked From</th>
-                            <th>Drop At</th>
-                            <th class="text-right">Distance</th>
-                            <th class="text-right">Unit KM Cost</th>
-                            <th class="text-right">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-title="#" class="text-center">1</td>
-                            <td data-title="Picked From">Old Mandir, Ludhiana</td>
-                            <td data-title="Drop At">Chandigarh</td>
-                            <td data-title="Distance" class="text-right">150 </td>
-                            <td data-title="Unit KM Cost" class="text-right"> $7.00 </td>
-                            <td data-title="Total" class="text-right"> $1050 </td>
-                        </tr>
+<div class="card card-body printableArea" id="printableArea" #printableArea>
+    <div *ngIf="payentDetails?.transactionID; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <h3><b>INVOICE</b> <span class="pull-right">#{{payentDetails?.transactionID}}</span></h3>
+        <hr>
 
-                    </tbody>
-                </table>
-            </div>
+        <div id="content" #content>
+            <section class="reciept">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panal">
+                            <div class="panal-body">
+                                <div class="reciept-top">
+                                    <div class="reciept-top-left">
+                                        <div class="driver-info">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-12">
+                                                    <div class="driver-paymentinfo">
+                                                        <label> company name - Total care mobility</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+                                                    <div class="row">
+                                                        <div *ngIf="payentDetails?.driverdetails?.imagefile"
+                                                            class="col-md-6 col-6">
+                                                            <label for="">Profile Picture:</label><br />
+                                                            <div class="pic_container">
+                                                                <!-- <img class="profile-img"
+                                                                    src="../assets/images/users/profile.png" alt="user"> -->
+                                                                <img src="{{env}}{{payentDetails?.driverdetails?.imagefile}}"
+                                                                    class="profile-img" alt="" />
+                                                            </div>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class=" col-7 col-sm-7 col-md-8 col-lg-9">
+                                                    <h5>LMW374</h5>
+                                                    <label
+                                                        class="taxi-modal mb-1">{{payentDetails?.driverdetails?.carType}}</label>
+                                                    <div class="driver-info">
+                                                        <span
+                                                            class="driver-name">{{payentDetails?.driverdetails?.name}}</span>
+                                                        <span class="driver-rating ml-2"><i
+                                                                class="icon fas fa-star text-green mr-1"></i> 4.5</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reciept-top-right">
+                                        <div class="driver-paymentinfo">
+                                            <label>GST Number</label>
+                                            <p class="billgst-number">129121939</p>
+                                        </div>
+                                        <div class="driver-paymentinfo">
+                                            <label>Phone Number</label>
+                                            <p class="billgst-number">{{payentDetails?.riderdetails?.phone}}</p>
+                                            <p class="billgst-number">03 351 1599 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reciept-middle">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="pickpoint">
+                                                <span class="pickpoint-label">Pick Up From</span>
+                                                <label
+                                                    class="d-block pickpoint-area">{{payentDetails?.pickupLocation?.address}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="droppoint">
+                                                <span class="droppoint-label">Drop</span>
+                                                <label
+                                                    class="d-block droppoint-area">{{payentDetails?.dropLocation?.address}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recipet-detail">
+                                    <table class="table table-borderless" width="100%" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="50%" class="recipet-detail-label" align="left">Total Distance
+                                            </td>
+                                            <td width="50%" class="recipet-detail-value" align="right">
+                                                {{payentDetails?.distance}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="50%" class="recipet-detail-label" align="left">Est. Time</td>
+                                            <td width="50%" class="recipet-detail-value" align="right">
+                                                {{"EstimatedTime"}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="50%" class="recipet-detail-label" align="left">Total Fare</td>
+                                            <td width="50%" class="recipet-detail-value" align="right">
+                                                $<strong>{{payentDetails?.fare||0}}</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="50%" class="recipet-detail-label" align="left">Tax</td>
+                                            <td width="50%" class="recipet-detail-value" align="right">
+                                                $<strong>{{payentDetails.tax||0}}</strong>
+                                            </td>
+                                        </tr>
+                                        <tr class="total">
+                                            <td width="50%" class="recipet-detail-label" align="left">Total</td>
+                                            <td width="50%" class="recipet-detail-value" align="right"><strong
+                                                    class="text-green">${{payentDetails.Amount||0}}("price gst
+                                                    incl")</strong> </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="recipet-bottom">
+                                    <!-- <a href="#" class="btn"><i class="icon mr-1 zmdi zmdi-print text-green"></i> Print
+                                        Recipt</a>
+                                    <a class="btn"><i class="icon mr-1 zmdi zmdi-download text-green"></i> Download
+                                        Recipt</a> -->
+                                    <button id="print" (click)="printInvoice('printableArea')"
+                                        class="btn btn-default btn-outline" type="button">
+                                        <span><i class="fa fa-print"></i>
+                                            Download</span>
+                                    </button>
+                                    <button id="print" (click)="sendInvoice()" class="btn btn-default btn-outline"
+                                        type="button">
+                                        <span><i class="fa fa-email"></i>
+                                            Send Invoice To mail</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
         </div>
-        <div class="col-md-12">
-            <div class="pull-right m-t-30 text-right">
-                <p>Sub - Total amount: $1,050</p>
-                <p>vat (10%) : $105 </p>
-                <hr>
-                <h3><b>Total :</b> $1,155</h3>
-            </div>
-            <div class="clearfix"></div>
-            <hr>
-            <div class="text-right">
-                <!-- <button class="btn btn-danger" type="submit"> Proceed to payment </button> -->
-                <button id="print" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
-            </div>
-        </div>
-    </div>
+    </ng-template>
+    <ng-template #elseBlock>it's Loading ...! please wait</ng-template>
 </div>

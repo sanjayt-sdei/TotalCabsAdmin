@@ -9,7 +9,9 @@
         </ol>
     </div>
     <div>
-        <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        <button
+            class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i
+                class="ti-settings text-white"></i></button>
     </div>
 </div>
 <div class="container-fluid">
@@ -23,9 +25,28 @@
         <div class="col-lg-8 col-md-7">
             <div class="card">
                 <div class="card-body">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423581.3164239507!2d-118.08630278078427!3d33.960952210383056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1606505120175!5m2!1sen!2sin"
-                        width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
+                    <agm-map [latitude]="latitude" [longitude]="longitude"  >
+                        <!-- <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
+                        
+                              <!-- <agm-marker *ngFor="let  d of driversdata" [iconUrl]="{ url: ('../assets/images/cab.jpg')}"    [latitude]="d.lat" [longitude]="d.lang"  >
+                                <agm-info-window  [disableAutoPan]="false">
+                    
+                                  <div>
+                                      <a  class="btn btn-attention pull-right">
+                                     <br>   licencenumber:{{d.licencenumber}}</a> 
+                                   </div>
+                      
+                              </agm-info-window> 
+                        
+                              </agm-marker> -->
+                            <!-- <agm-direction 
+                            [renderOptions]="renderOptions" 
+                            [markerOptions]="markerOptions"
+                            [origin]="start" 
+                            [destination]="end"
+                          >
+                        </agm-direction> -->
+                      </agm-map>
                 </div>
             </div>
 
@@ -57,157 +78,247 @@
         </div>
     </div>
     <!-- Row -->
-    <div class="card card-default">
-        <div class="card-header">
-            <h4 class="card-title mb-0">Assign Jobs</h4>
+    <div class="row">
+        <div class="col-12 text-right">
+            <form [formGroup]='filterForm' (change)='handleSelect()'>
+                <div class="form-row">
+                    <div class="col-12 text-right">
+                        <select class="custom-select w-auto" formControlName="type">
+                            <option value='' selected>select</option>
+                            <option value='week'>Week</option>
+                            <option value='month'>Month</option>
+                            <option value='year'>Year</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover no-wrap contact-list" data-page-size="10">
-                    <thead>
-                        <tr>
-                            <th>ID #</th>
-                            <th>Order From</th>
-                            <th>Cust. Email</th>
-                            <th>From-to</th>
-                            <th>Status</th>
-
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1011</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
-                            </td>
-                            <td>genelia@gmail.com</td>
-                            <td>Chandigarh - Ludhiana</td>
-                            <td><span class="label label-warning">New</span> </td>
-
-                            <td>14-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline" (click)="openModal(template)">
-                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                          </button>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1011</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
-                            </td>
-                            <td>genelia@gmail.com</td>
-                            <td>Chandigarh - Ludhiana</td>
-                            <td><span class="label label-warning">New</span> </td>
-
-                            <td>14-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
-                          <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                        </button>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1011</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
-                            </td>
-                            <td>genelia@gmail.com</td>
-                            <td>Chandigarh - Ludhiana</td>
-                            <td><span class="label label-warning">New</span> </td>
-
-                            <td>14-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
-                        <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                      </button>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1011</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
-                            </td>
-                            <td>genelia@gmail.com</td>
-                            <td>Chandigarh - Ludhiana</td>
-                            <td><span class="label label-warning">New</span> </td>
-
-                            <td>14-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
-                      <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                    </button>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1011</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
-                            </td>
-                            <td>genelia@gmail.com</td>
-                            <td>Chandigarh - Ludhiana</td>
-                            <td><span class="label label-warning">New</span> </td>
-
-                            <td>14-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
-                                <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                              </button>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1224</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user" class="img-circle" /> Ritesh Deshmukh</a>
-                            </td>
-                            <td>ritesh@gmail.com</td>
-                            <td>Chandigarh - Shimla</td>
-                            <td><span class="label label-success">Complete</span> </td>
-
-                            <td>13-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2124</td>
-                            <td>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user" class="img-circle" /> Raja Mauli</a>
-                            </td>
-                            <td>bahubali@gmail.com</td>
-                            <td>Shimla - Dharamshala</td>
-                            <td><span class="label label-inverse">Pending</span> </td>
-
-                            <td>12-10-2017</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline">
-                                  <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                </table>
+        <div class="col-md-6 col-lg-6 col-xlg-6">
+            <div class="card card-inverse card-success">
+                <div class="box bg-success text-center">
+                    <h1 class="font-light text-white">{{totalVehicles}}
+                    </h1>
+                    <h6 class="text-white">Total Vehicles</h6>
+                </div>
             </div>
         </div>
+        <div class="col-md-6 col-lg-6 col-xlg-6">
+            <div class="card card-inverse card-denger">
+                <div class="box bg-danger text-center">
+                    <h1 class="font-light text-white">{{freeVehicles}}
+                    </h1>
+                    <h6 class="text-white">Free Vehicles</h6>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
     </div>
+    <div class="row">
+        <!-- Column -->
+        <div *ngFor="let item of userByType" class="col-md-6 col-lg-2 col-xlg-2">
+            <div class="card card-inverse card-info">
+                <div class="box bg-info text-center">
+                    <h1 class="font-light text-white">{{item?.totalUsers}} <h6>users</h6>
+                    </h1>
+                    <h6 *ngIf="item?.month" class="text-white">{{months[item?.month-1]}}, {{item?.year}}
+                    </h6>
+                    <h6 *ngIf="item?.week" class="text-white">{{item?.week}} week of {{item?.year}}</h6>
+                    <h6 *ngIf="!item?.week && !item?.month" class="text-white">In {{item?.year}}
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+    </div>
+    <div class="card card-default">
+        <div class="card-header">
+            <!-- <h4 class="card-title mb-0">Assign Jobs</h4> -->
+        </div>
+        <div class="card-body">
+            <tabset>
+                <tab heading="All Jobs" id="tab1">
+                    <div class="table-responsive">
+                        <table class="table table-hover no-wrap contact-list" data-page-size="10">
+                            <thead>
+                                <tr>
+                                    <th>ID #</th>
+                                    <th>Order From</th>
+                                    <th>Cust. Email</th>
+                                    <th>From-to</th>
+                                    <th>Status</th>
 
+                                    <th>Date</th>
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr #some_id
+                                    *ngFor="let item of listOfJobs| paginate: { itemsPerPage: 10, currentPage: page }">
+                                    <td>{{item?._id}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user"
+                                                class="img-circle" /> {{item?.riderdetails?.name}}</a>
+                                    </td>
+                                    <td>{{item?.riderdetails?.email}}</td>
+                                    <td>{{item.pickupLocation.address}} - {{item.dropLocation.address}}</td>
+                                    <!-- <td><span class="label label-warning">New</span> </td> -->
+                                    <td [ngSwitch]="item?.tripstatus">
+                                        <span *ngSwitchCase="'Accepted'"
+                                            class="label label-danger">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Canceled'"
+                                            class="label label-success">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Completed'"
+                                            class="label label-warning">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Upcoming'"
+                                            class="label label-info">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Ongoing'"
+                                            class="label label-primary">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchDefault
+                                            class="label label-inverse">{{item?.tripstatus||item?.requestAction}}</span>
+                                    </td>
+                                    <td>{{item?.tripStartTime| date:'dd-MM-yyyy'}}</td>
+                                    <!-- <td>
+                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
+                                            (click)="openModal(template)">
+                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                                aria-hidden="true"></i></button>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                    </div>
+                </tab>
+                <tab heading="Allocated Jobs">
+                    <div class="table-responsive">
+                        <table class="table table-hover no-wrap contact-list" data-page-size="10">
+                            <thead>
+                                <tr>
+                                    <th>ID #</th>
+                                    <th>Order From</th>
+                                    <th>Cust. Email</th>
+                                    <th>From-to</th>
+                                    <th>Status</th>
+
+                                    <th>Date</th>
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr #some_id2 *ngFor="let item of allocatedJobs">
+                                    <td>{{item?._id}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user"
+                                                class="img-circle" /> {{item?.riderdetails?.name}}</a>
+                                    </td>
+                                    <td>{{item?.riderdetails?.email}}</td>
+                                    <td>{{item.pickupLocation.address}} - {{item.dropLocation.address}}</td>
+                                    <!-- <td><span class="label label-warning">New</span> </td> -->
+                                    <td [ngSwitch]="item?.tripstatus">
+                                        <span *ngSwitchCase="'Accepted'"
+                                            class="label label-danger">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Canceled'"
+                                            class="label label-danger">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Completed'"
+                                            class="label label-warning">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Ongoing'"
+                                            class="label label-primary">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Upcoming'"
+                                            class="label label-info">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchDefault class="label label-inverse">{{item?.tripstatus}}</span>
+                                    </td>
+                                    <td>{{item?.tripStartTime| date:'dd-MM-yyyy'}}</td>
+                                    <!-- <td>
+                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
+                                            (click)="openModal(template)">
+                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                                aria-hidden="true"></i></button>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </tab>
+                <tab heading="Declined Jobs">
+                    <div class="table-responsive">
+                        <table class="table table-hover no-wrap contact-list" data-page-size="10">
+                            <thead>
+                                <tr>
+                                    <th>ID #</th>
+                                    <th>Order From</th>
+                                    <th>Cust. Email</th>
+                                    <th>From-to</th>
+                                    <th>Status</th>
+
+                                    <th>Date</th>
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of declinedofJobs">
+                                    <td>{{item?._id}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user"
+                                                class="img-circle" /> {{item?.riderdetails?.name}}</a>
+                                    </td>
+                                    <td>{{item?.riderdetails?.email}}</td>
+                                    <td>{{item.pickupLocation.address}} - {{item.dropLocation.address}}</td>
+                                    <!-- <td><span class="label label-warning">New</span> </td> -->
+                                    <td [ngSwitch]="item?.tripstatus">
+                                        <span *ngSwitchCase="'Accepted'"
+                                            class="label label-danger">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Canceled'"
+                                            class="label label-danger">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Completed'"
+                                            class="label label-warning">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Upcoming'"
+                                            class="label label-info">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchCase="'Ongoing'"
+                                            class="label label-primary">{{item?.tripstatus}}</span>
+                                        <span *ngSwitchDefault class="label label-inverse">{{item?.tripstatus}}</span>
+                                    </td>
+                                    <td>{{item?.tripStartTime| date:'dd-MM-yyyy'}}</td>
+                                    <!-- <td>
+                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
+                                            (click)="openModal(template)">
+                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
+                                                aria-hidden="true"></i></button>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <!-- <div class="col-12 text-right">
+                                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                                </div> -->
+                            </tfoot>
+                        </table>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
 </div>
 
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Assign Jobs</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
         <div class="form-material">
@@ -231,3 +342,6 @@
         <button class="btn btn-primary">Assign Job</button>
     </div>
 </ng-template>
+
+
+ 

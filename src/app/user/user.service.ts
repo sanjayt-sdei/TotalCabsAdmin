@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment as env } from "../../environments/environment";
+import { environment  } from "../../environments/environment";
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,29 +12,34 @@ export class UserService {
   constructor(private http: HttpClient,
     private router: Router,) { }
 
-  getAlluser(data = ""): Observable<any> {
-    const uri = env.api_url2 + 'getcustomer';
-    return this.http.get(uri);
+  getAlluser(): Observable<any> {
+    const uri = environment.api_url + 'adminGetCustomer';
+    return this.http.post(uri,{});
   }
 
   deleteUser(id): Observable<any> {
     console.log("ser", id);
-    const uri = env.api_url2 + 'deleteUser';
+    const uri = environment.api_url + 'adminDeleteUser';
     return this.http.post(uri, id);
   }
 
   addUser(data): Observable<any> {
-    const uri = env.api_url2 + 'addCustomer';
+    const uri = environment.api_url + 'adminAddCustomer';
     return this.http.post(uri, data);
   }
   editUser(data): Observable<any> {
-    const uri = env.api_url2 + 'updateCustomer';
+    const uri = environment.api_url + 'adminUpdateCustomer';
     return this.http.post(uri, data);
   }
 
   getUserById(data): Observable<any> {
     console.log(data);
-    const uri = env.api_url2 + 'getcustomerByid';
+    const uri = environment.api_url + 'adminGetCustomerByid';
+    return this.http.post(uri,data);
+  }
+  getdistance1(data): Observable<any> {
+    console.log(data);
+    const uri = environment.api_url + 'getdistance1';
     return this.http.post(uri,data);
   }
 }

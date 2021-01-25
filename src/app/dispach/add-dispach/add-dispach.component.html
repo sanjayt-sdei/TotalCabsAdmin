@@ -1,0 +1,120 @@
+<div class="col-md-12 col-lg-12">
+    <div class="card wizard-content">
+        <div class="card-body tab-wizard vertical wizard-circle wizard clearfix form-material">
+
+            <form [formGroup]="userForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="dateOfJourney">Date Of Journey</label>
+                            <input type="date" class="form-control" formControlName="dateOfJourney">
+                            <span class="text-danger"
+                                *ngIf="userForm.controls['dateOfJourney'].hasError('required') && (userForm.controls['dateOfJourney'].dirty || userForm.controls['dateOfJourney'].touched)">This
+                                field is required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="timeOfJourney">Time Of Journey</label>
+                            <input type="time" value="09:00" class="form-control" formControlName="timeOfJourney">
+                            <span class="text-danger"
+                                *ngIf="userForm.controls['timeOfJourney'].hasError('required') && (userForm.controls['timeOfJourney'].dirty || userForm.controls['timeOfJourney'].touched)">This
+                                field is required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Driver name </label>
+                                <select class="form-control  custom-select" formControlName="name" id="name">
+                                    <option value="">--Select user type --</option>
+                                    <option *ngFor="let dr of guests" value="{{dr._id}}">{{dr.name |titlecase }}
+                                    </option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="userForm.controls['name'].hasError('required') && (userForm.controls['name'].dirty || userForm.controls['name'].touched)">This
+                                    field is required</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Pickup Location </label>
+                            <!-- <input type="text" class="form-control" formControlName="pickUpLocation"> -->
+                            <input type="text" class="form-control" formControlName="pickUpLocation"
+                                placeholder="Enter pickup location" class="form-control"
+                                (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off"
+                                spellcheck="off" #Pickuplocation>
+
+                            <span class="text-danger"
+                                *ngIf="userForm.controls['pickUpLocation'].hasError('required') && (userForm.controls['pickUpLocation'].dirty || userForm.controls['pickUpLocation'].touched)">This
+                                field is required</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Drop Location </label>
+                            <!-- <input type="text" class="form-control" formControlName="dropUpLocation"> -->
+                            <input type="text" class="form-control" formControlName="dropUpLocation"
+                                placeholder="Enter drop location" class="form-control"
+                                (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off"
+                                spellcheck="off" #DropLocation>
+                            <span class="text-danger"
+                                *ngIf="userForm.controls['dropUpLocation'].hasError('required') && (userForm.controls['dropUpLocation'].dirty || userForm.controls['dropUpLocation'].touched)">This
+                                field is required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div formArrayName="midlocation">
+                            <div class="container mb-12" *ngFor="let container of midlocation().controls; let i=index"
+                                [formGroupName]="i">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Intermideate Location : {{i+1}}</label>
+                                            <!-- <input type="text" class="form-control" formControlName="location"> -->
+                                            <input type="text" class="form-control" formControlName="location"
+                                                placeholder="Enter pickup location" class="form-control"
+                                                (keydown.enter)="$event.preventDefault()" autocorrect="off"
+                                                autocapitalize="off" spellcheck="off" #Location id="{{'location_'+i}}">
+                                              
+                                        </div>
+                                    </div>
+                                    <div class="col-1" *ngIf="i>=1">
+                                        <button type="button" (click)="removeContainer(i)"><i
+                                                class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="button" (click)="addDispatchJob()"><i class="fa fa-plus-circle"
+                                                aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="actions clearfix px-0 text-right">
+                    <button class="btn waves-effect waves-light btn-outline-primary"
+                        (click)="submitForm()">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
