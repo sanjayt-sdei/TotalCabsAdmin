@@ -19,7 +19,7 @@ res.sendFile(path.join(__dirname, '/dist/totalcab-admin/'));
 });
 
 // Get port from environment and store in Express.
-const port = process.env.PORT || '6081';
+var port = process.env.PORT || '6081';
 app.set('port', port);
 
 // Create HTTP server.
