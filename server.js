@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '/dist/totalcab-admin/')));
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-res.sendFile(path.join(__dirname, '/dist/totalcab-admin/'));
+res.sendFile(path.join(__dirname, '/dist/totalcab-admin/index.html'));
 });
 
 // Get port from environment and store in Express.
