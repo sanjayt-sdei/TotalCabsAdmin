@@ -11,5 +11,5 @@ export class BookingsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//console.log("ok");
 }
