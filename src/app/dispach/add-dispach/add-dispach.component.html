@@ -6,12 +6,40 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <input type="checkbox" (change)="FieldsChange($event)">
+                            <label>Recursive Booking</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" *ngIf="rbData==false">
+                        <div class="form-group">
                             <label for="dateOfJourney">Date Of Journey</label>
                             <input type="date" class="form-control" formControlName="dateOfJourney">
                             <span class="text-danger"
                                 *ngIf="userForm.controls['dateOfJourney'].hasError('required') && (userForm.controls['dateOfJourney'].dirty || userForm.controls['dateOfJourney'].touched)">This
                                 field is required</span>
                         </div>
+
+                    </div>
+                    <div class="col-md-6" *ngIf="rbData==true">
+                        <!-- <div class="form-group"> -->
+                            <label for="dayOfJourney">Day Of Journey</label>
+                            <ng-multiselect-dropdown
+                            class="form-control"
+                            [placeholder]="'Select City'"
+                            [settings]="dropdownSettings"
+                            [data]="cities"
+                            formControlName="dayOfJourney"
+                            [disabled]="disabled"
+                            (onSelect)="onItemSelect($event)"
+                            >
+                        </ng-multiselect-dropdown>
+                            <span class="text-danger"
+                                *ngIf="userForm.controls['dayOfJourney'].hasError('required') && (userForm.controls['dayOfJourney'].dirty || userForm.controls['city'].touched)">This
+                                field is required</span>
+                        <!-- </div> -->
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -25,20 +53,19 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Driver name </label>
-                                <select class="form-control  custom-select" formControlName="name" id="name">
+                        <div class="form-group">
+                            <label>Cab Number </label>
+                            <input type="input" class="form-control" formControlName="cabNumber">
+                            <!-- <select class="form-control  custom-select" formControlName="name" id="name">
                                     <option value="">--Select user type --</option>
                                     <option *ngFor="let dr of guests" value="{{dr._id}}">{{dr.name |titlecase }}
                                     </option>
-                                </select>
-                                <span class="text-danger"
-                                    *ngIf="userForm.controls['name'].hasError('required') && (userForm.controls['name'].dirty || userForm.controls['name'].touched)">This
-                                    field is required</span>
-                            </div>
+                                </select> -->
+                            <span class="text-danger"
+                                *ngIf="userForm.controls['cabNumber'].hasError('required') && (userForm.controls['cabNumber'].dirty || userForm.controls['cabNumber'].touched)">This
+                                field is required</span>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -81,7 +108,7 @@
                             <div class="container mb-12" *ngFor="let container of midlocation().controls; let i=index"
                                 [formGroupName]="i">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <div class="form-group">
                                             <label>Intermideate Location : {{i+1}}</label>
                                             <!-- <input type="text" class="form-control" formControlName="location"> -->
@@ -89,7 +116,7 @@
                                                 placeholder="Enter pickup location" class="form-control"
                                                 (keydown.enter)="$event.preventDefault()" autocorrect="off"
                                                 autocapitalize="off" spellcheck="off" #Location id="{{'location_'+i}}">
-                                              
+
                                         </div>
                                     </div>
                                     <div class="col-1" *ngIf="i>=1">

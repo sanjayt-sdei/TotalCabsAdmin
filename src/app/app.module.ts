@@ -6,7 +6,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
-
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -107,8 +107,10 @@ NgxSpinnerModule,
 NgxPaginationModule,
 AgmCoreModule.forRoot({
 apiKey: 'AIzaSyAPtxJJdDVQUUW_PKvnIHaPuH6YOgGnjGA',
+libraries: ['places',"geometry"],
 
 }),
+NgMultiSelectDropDownModule.forRoot(),
 TabsModule.forRoot(),
 NgxDaterangepickerMd.forRoot(),
 ],
