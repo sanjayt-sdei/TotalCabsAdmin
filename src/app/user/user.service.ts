@@ -37,9 +37,4 @@ export class UserService {
     const uri = environment.api_url + 'adminGetCustomerByid';
     return this.http.post(uri,data);
   }
-  getdistance1(data): Observable<any> {
-    console.log(data);
-    const uri = environment.api_url + 'getdistance1';
-    return this.http.post(uri,data);
-  }
 }

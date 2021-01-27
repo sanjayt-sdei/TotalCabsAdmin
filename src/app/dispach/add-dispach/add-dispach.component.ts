@@ -5,13 +5,23 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OnlyCharFieldValidator } from 'src/app/shared/validation/validations.validator';
-import { DispachService } from '../dispach.service'
+import { DispachService } from '../dispach.service';
+import { IDropdownSettings } from "ng-multiselect-dropdown";
+
 @Component({
   selector: 'app-add-dispach',
   templateUrl: './add-dispach.component.html',
   styleUrls: ['./add-dispach.component.scss']
 })
 export class AddDispachComponent implements OnInit {
+
+  disabled = false;
+  ShowFilter = false;
+  limitSelection = false;
+  cities: any = [];
+  selectedItems: any = [];
+  dropdownSettings: any = {};
+
   userForm: FormGroup;
   lat: number;
   lng: number;
@@ -22,7 +32,8 @@ export class AddDispachComponent implements OnInit {
   latLocation: number;
   lngLocation: number;
   location: string;
-  midlocationcount: Number
+  midlocationcount: Number;
+  rbData: Boolean=false;
 
   midlocation(): FormArray {
     return this.userForm.get("midlocation") as FormArray
@@ -51,13 +62,16 @@ export class AddDispachComponent implements OnInit {
 
 
     this.userForm = this.fb.group({
-      'dateOfJourney': ['', Validators.compose([Validators.required])],
+      'dateOfJourney': [''],
       'timeOfJourney': ['', Validators.compose([Validators.required])],
-      'name': ['', Validators.compose([Validators.required, OnlyCharFieldValidator.validOnlyCharField])],
+      'cabNumber': ['', Validators.compose([Validators.required])],
+      // 'name': ['', Validators.compose([Validators.required, OnlyCharFieldValidator.validOnlyCharField])],
       'pickUpLocation': ['', Validators.compose([Validators.required])],
       'dropUpLocation': ['', Validators.compose([Validators.required])],
       // 'midlocation':null,
       'midlocation': this.fb.array([]),
+      'recursiveBooking':this.rbData,
+      'dayOfJourney':[this.selectedItems]
     });
 
     this.lat = 43.8992496;
@@ -69,6 +83,31 @@ export class AddDispachComponent implements OnInit {
     this.midlocation().push(this.newContainer());
     this.getLocation(this.midlocation().length);
     this.getdriverList();
+    this.cities = [
+      { id: 1, day: 'Monday' },
+      { id: 2, day: 'Tuesday' },
+      { id: 3, day: 'Wednesday' },
+      { id: 4, day: 'Thursday' },
+      { id: 5, day: 'Friday' },
+      { id: 6, day: 'Saturday' }
+  ];
+  // this.selectedItems = [{ id: 4, day: 'Pune' }, { id: 6, day: 'Navsari' }];
+  this.dropdownSettings = {
+    "singleSelection": false,
+    "defaultOpen": false,
+    "idField": "id",
+    "textField": "day",
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "enableCheckAll": false,
+    "itemsShowLimit": 3,
+    "allowSearchFilter": true
+  };
+  // this.userForm = this.fb.group({
+  //     dayOfJourney: [this.selectedItems]
+  // });
+
+    
 
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.PickuplocationElementRef.nativeElement, {
@@ -96,7 +135,23 @@ export class AddDispachComponent implements OnInit {
       });
     });
   }
+  onItemSelect(item: any) {
+    console.log('onItemSelect', item);
+}
+toogleShowFilter() {
+    this.ShowFilter = !this.ShowFilter;
+    this.dropdownSettings = Object.assign({}, this.dropdownSettings, { allowSearchFilter: this.ShowFilter });
+}
 
+// handleLimitSelection() {
+//     if (this.limitSelection) {
+//         this.dropdownSettings = Object.assign({}, this.dropdownSettings, { limitSelection: 2 });
+//         console.log("dropdownSettings",this.dropdownSettings);
+        
+//     } else {
+//         this.dropdownSettings = Object.assign({}, this.dropdownSettings, { limitSelection: null });
+//     }
+// }
   ngAfterViewChecked() {
     // viewChild is updated after the view has been checked
     if (this.midlocation().length !== this.midlocationcount) {
@@ -180,14 +235,20 @@ export class AddDispachComponent implements OnInit {
     }
     );
   }
-
+  FieldsChange(values:any){
+    this.rbData=values.currentTarget.checked;
+    console.log("rbData",this.rbData);
+    }
   submitForm() {
     this.markFormTouched(this.userForm);
-    // if (this.userForm.valid) {
+console.log("Dispatchdata",this.userForm.value);
+
+    if (this.userForm.valid) {
       let finalData = {
       dateOfJourney:this.userForm.value.dateOfJourney,
       timeOfJourney:this.userForm.value.timeOfJourney,
-      driverdetails:this.userForm.value.name,
+      // driverdetails:this.userForm.value.name,
+      cabNumber:this.userForm.value.cabNumber,
       pickupLocation: {
         latitude: this.latitude,
         longitude: this.longitude,
@@ -215,7 +276,10 @@ export class AddDispachComponent implements OnInit {
           this._toastr.info("Error", "Despatch Jobs");
         }
       });
-   
+    }
+    else{
+      this._toastr.info("Error", "Despatch Jobs");
+    }
   }
 
 

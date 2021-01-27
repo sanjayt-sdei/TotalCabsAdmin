@@ -16,45 +16,20 @@
 </div>
 <div class="container-fluid">
 
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-
-    <!-- Row -->
     <div class="row">
         <div class="col-lg-8 col-md-7">
             <div class="card">
                 <div class="card-body">
-                    <agm-map [latitude]="latitude" [longitude]="longitude"  >
-                        <!-- <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
-                        
-                              <!-- <agm-marker *ngFor="let  d of driversdata" [iconUrl]="{ url: ('../assets/images/cab.jpg')}"    [latitude]="d.lat" [longitude]="d.lang"  >
-                                <agm-info-window  [disableAutoPan]="false">
-                    
-                                  <div>
-                                      <a  class="btn btn-attention pull-right">
-                                     <br>   licencenumber:{{d.licencenumber}}</a> 
-                                   </div>
-                      
-                              </agm-info-window> 
-                        
-                              </agm-marker> -->
-                            <!-- <agm-direction 
-                            [renderOptions]="renderOptions" 
-                            [markerOptions]="markerOptions"
-                            [origin]="start" 
-                            [destination]="end"
-                          >
-                        </agm-direction> -->
-                      </agm-map>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423581.3164239507!2d-118.08630278078427!3d33.960952210383056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1606505120175!5m2!1sen!2sin"
+                        width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+
                 </div>
             </div>
 
         </div>
         <div class="col-lg-4 col-md-5">
-            <!-- Column -->
-
-            <!-- Column -->
             <div class="card card-default">
                 <div class="card-header">
                     <h4 class="mb-0">Fair Calculator</h4>
@@ -73,11 +48,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Column -->
 
         </div>
     </div>
-    <!-- Row -->
     <div class="row">
         <div class="col-12 text-right">
             <form [formGroup]='filterForm' (change)='handleSelect()'>
@@ -111,10 +84,8 @@
                 </div>
             </div>
         </div>
-        <!-- Column -->
     </div>
     <div class="row">
-        <!-- Column -->
         <div *ngFor="let item of userByType" class="col-md-6 col-lg-2 col-xlg-2">
             <div class="card card-inverse card-info">
                 <div class="box bg-info text-center">
@@ -128,11 +99,9 @@
                 </div>
             </div>
         </div>
-        <!-- Column -->
     </div>
     <div class="card card-default">
         <div class="card-header">
-            <!-- <h4 class="card-title mb-0">Assign Jobs</h4> -->
         </div>
         <div class="card-body">
             <tabset>
@@ -148,7 +117,6 @@
                                     <th>Status</th>
 
                                     <th>Date</th>
-                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -161,7 +129,6 @@
                                     </td>
                                     <td>{{item?.riderdetails?.email}}</td>
                                     <td>{{item.pickupLocation.address}} - {{item.dropLocation.address}}</td>
-                                    <!-- <td><span class="label label-warning">New</span> </td> -->
                                     <td [ngSwitch]="item?.tripstatus">
                                         <span *ngSwitchCase="'Accepted'"
                                             class="label label-danger">{{item?.tripstatus}}</span>
@@ -177,16 +144,7 @@
                                             class="label label-inverse">{{item?.tripstatus||item?.requestAction}}</span>
                                     </td>
                                     <td>{{item?.tripStartTime| date:'dd-MM-yyyy'}}</td>
-                                    <!-- <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
-                                            (click)="openModal(template)">
-                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                                        </button>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
-                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
-                                                aria-hidden="true"></i></button>
-                                    </td> -->
+                                
                                 </tr>
                             </tbody>
                         </table>
@@ -207,7 +165,6 @@
                                     <th>Status</th>
 
                                     <th>Date</th>
-                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -219,7 +176,6 @@
                                     </td>
                                     <td>{{item?.riderdetails?.email}}</td>
                                     <td>{{item.pickupLocation.address}} - {{item.dropLocation.address}}</td>
-                                    <!-- <td><span class="label label-warning">New</span> </td> -->
                                     <td [ngSwitch]="item?.tripstatus">
                                         <span *ngSwitchCase="'Accepted'"
                                             class="label label-danger">{{item?.tripstatus}}</span>
@@ -234,16 +190,7 @@
                                         <span *ngSwitchDefault class="label label-inverse">{{item?.tripstatus}}</span>
                                     </td>
                                     <td>{{item?.tripStartTime| date:'dd-MM-yyyy'}}</td>
-                                    <!-- <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
-                                            (click)="openModal(template)">
-                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                                        </button>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
-                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
-                                                aria-hidden="true"></i></button>
-                                    </td> -->
+                                   
                                 </tr>
                             </tbody>
                         </table>
@@ -261,7 +208,6 @@
                                     <th>Status</th>
 
                                     <th>Date</th>
-                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -273,7 +219,6 @@
                                     </td>
                                     <td>{{item?.riderdetails?.email}}</td>
                                     <td>{{item.pickupLocation.address}} - {{item.dropLocation.address}}</td>
-                                    <!-- <td><span class="label label-warning">New</span> </td> -->
                                     <td [ngSwitch]="item?.tripstatus">
                                         <span *ngSwitchCase="'Accepted'"
                                             class="label label-danger">{{item?.tripstatus}}</span>
@@ -288,22 +233,11 @@
                                         <span *ngSwitchDefault class="label label-inverse">{{item?.tripstatus}}</span>
                                     </td>
                                     <td>{{item?.tripStartTime| date:'dd-MM-yyyy'}}</td>
-                                    <!-- <td>
-                                        <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline"
-                                            (click)="openModal(template)">
-                                            <i data-toggle="tooltip" title="Assign Cab" class="fa fa-cab"></i>
-                                        </button>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
-                                            data-toggle="tooltip" data-original-title="Delete"><i class="ti-close"
-                                                aria-hidden="true"></i></button>
-                                    </td> -->
+                                
                                 </tr>
                             </tbody>
                             <tfoot>
-                                <!-- <div class="col-12 text-right">
-                                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
-                                </div> -->
+                               
                             </tfoot>
                         </table>
                     </div>
@@ -342,6 +276,27 @@
         <button class="btn btn-primary">Assign Job</button>
     </div>
 </ng-template>
+<!-- <agm-map [latitude]="latitude" [longitude]="longitude"  >
+  
+    
+          <agm-marker *ngFor="let  d of driversdata" [iconUrl]="{ url: ('../assets/images/cab.jpg')}"    [latitude]="d.lat" [longitude]="d.lang"  >
+            <agm-info-window  [disableAutoPan]="false">
 
+              <div>
+                  <a  class="btn btn-attention pull-right">
+                 <br>   licencenumber:{{d.licencenumber}}</a> 
+               </div>
+  
+          </agm-info-window> 
+    
+          </agm-marker>
+        <agm-direction 
+        [renderOptions]="renderOptions" 
+        [markerOptions]="markerOptions"
+        [origin]="start" 
+        [destination]="end"
+      >
+    </agm-direction>
+  </agm-map> -->
 
  
